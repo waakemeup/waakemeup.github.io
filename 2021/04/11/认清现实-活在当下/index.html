@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="LeetCode1314. 矩阵区域和, waakeme_up">
+    <meta name="keywords" content="认清现实,活在当下, waakeme_up">
     <meta name="description" content="这里是萌新一枚,请多多关照!">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>LeetCode1314. 矩阵区域和 | waakeme_up</title>
+    <title>认清现实,活在当下 | waakeme_up</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LeetCode1314. 矩阵区域和</h1>
+                    <h1 class="description center-align post-title">认清现实,活在当下</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                                <span class="chip bg-color">动态规划</span>
+                            <a href="/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/">
+                                <span class="chip bg-color">记录心情</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/">
+                                <span class="chip bg-color">随便写写</span>
                             </a>
                         
                     </div>
@@ -447,7 +451,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-25
+                    2021-04-11
                 </div>
                 
 
@@ -468,14 +472,24 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="LeetCode1314-矩阵区域和"><a href="#LeetCode1314-矩阵区域和" class="headerlink" title="LeetCode1314. 矩阵区域和"></a>LeetCode1314. 矩阵区域和</h1><p>给你一个 m * n 的矩阵 mat 和一个整数 K ，请你返回一个矩阵 answer ，其中每个 answer[i][j] 是所有满足下述条件的元素 mat[r][c] 的和： </p>
-<p>i - K &lt;= r &lt;= i + K, j - K &lt;= c &lt;= j + K <br>(r, c) 在矩阵内。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/matrix-block-sum">https://leetcode-cn.com/problems/matrix-block-sum</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-<h3 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：mat &#x3D; [[1,2,3],[4,5,6],[7,8,9]], K &#x3D; 1</span><br><span class="line">输出：[[12,21,16],[27,45,33],[24,39,28]]</span><br></pre></td></tr></table></figure>
-<h3 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：mat &#x3D; [[1,2,3],[4,5,6],[7,8,9]], K &#x3D; 2</span><br><span class="line">输出：[[45,45,45],[45,45,45],[45,45,45]]</span><br></pre></td></tr></table></figure>
-<p>相关知识点<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43642447/article/details/106039033?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161424354216780261925574%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=161424354216780261925574&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-6-106039033.first_rank_v2_pc_rank_v29&utm_term=%E7%9F%A9%E5%BD%A2%E5%89%8D%E7%BC%80%E5%92%8C">矩阵前缀和</a></p>
-<p>CPP代码: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; matrixBlockSum(vector&lt;vector&lt;int&gt;&gt;&amp; mat, int K) &#123;</span><br><span class="line">        int m&#x3D;mat.size(),n&#x3D;mat[0].size();</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; res(m,vector&lt;int&gt; (n,0));</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; dp(m+1,vector&lt;int&gt;(n+1,0));</span><br><span class="line">        for(int i&#x3D;0;i&lt;m;i++)&#123;</span><br><span class="line">            for(int j&#x3D;0;j&lt;n;j++)&#123;</span><br><span class="line">                dp[i+1][j+1]&#x3D;dp[i+1][j]+dp[i][j+1]-dp[i][j]+mat[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i&#x3D;0;i&lt;m;i++)&#123;</span><br><span class="line">            for(int j&#x3D;0;j&lt;n;j++)&#123;</span><br><span class="line">                &#x2F;&#x2F;左上角坐标</span><br><span class="line">                int r1&#x3D;max(i-K,0);</span><br><span class="line">                int c1&#x3D;max(j-K,0);</span><br><span class="line">                &#x2F;&#x2F;右下角</span><br><span class="line">                int r2&#x3D;min(i+K,m-1);</span><br><span class="line">                int c2&#x3D;min(j+K,n-1);</span><br><span class="line">                res[i][j]&#x3D;dp[r2+1][c2+1]-dp[r1][c2+1]-dp[r2+1][c1]+dp[r1][c1];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+                <h3 id="“成功和失败之间-应有第三种人生”"><a href="#“成功和失败之间-应有第三种人生”" class="headerlink" title="“成功和失败之间,应有第三种人生”"></a>“成功和失败之间,应有第三种人生”</h3><pre><code>    这是我最近在知乎某个问题下看到的回答,我想,这所谓第三种人生究竟是什么,在这个急功近利的时代,从小我们就被教导着“要好好学习,以后才能出人头地”,于是,我们大家都在无形中被内卷着,哪怕是中学生、小学生也都陷入这样一种状态。</code></pre>
+<p><img src="https://pic1.zhimg.com/80/v2-5618719ffec964b2999e3e093a04ae16_720w.jpg?source=1940ef5c" alt="图片上传失败..."></p>
+<ol>
+<li>内卷的结果是什么,是学生之间的竞争越来越激烈,企业招人的要求越来越高,企业招人要求高也就越会加速内卷,近年来,某某名牌大学学生跳楼,研究生自杀新闻屡见不鲜…  </li>
+<li>我只是一个普普通通的双非大学的学生,读大学前,我曾幻想着在大学能够拥有一台PS4,能够天天打游戏,遇见一个心灵相通的Ta…我和那些卷王不一样,我厌恶学习,我并不讨厌老师,也不是见不得某个人、某种风气,我就是天生的讨厌学习,从小就如此,讨厌这种行为本身。以至于高考结束那天,我把所有东西都扔了,没带一点东西回家,连一点高中的回忆都没留。我以为,终于到头了,终于可以玩了。  </li>
+<li>哈哈哈,说起来我还觉得自己挺有天赋的,就是天天完全不学习也都还是考了个一本大学,高中作业全都是抄的,从来没在周末画过时间学习,其他好多人也这样说但不知道是真是假,反正对我而言是真的。我记得自己是我高中班上的反面教材,我天天被老师骂,说我态度不端正,其实我为此蛮骄傲的,因为看着自己身后那些人,付出了很多努力,有的也不如我…哈哈哈,我感觉自己好贱,不对,我本来就是个烂人啊,我还是有点自知自明的。  </li>
+<li>高中时,我喜欢一个女孩,她的成绩很差,每次周五上数学课时,她总是和我坐在一起,我知道,她可能有点喜欢我,因为在之前发生了一些事,但我没从来没主动提过这些,在这方面,我很自卑,和我其他时候的那种自傲正好相反。于是我在擅长的数学课上逗她玩,其实我看得出她有点开心,但我的行为也就仅限于此,就这样持续了几个月…直到那天,2018年5月18日,我和往常一样逗她玩,可这次,她好像不太开心。我很奇怪,我想我不知道原因但也知道,第二天,她故意躲着我,I mess up,好想死,为什么会这样?我不懂啊,我做错了什么?被讨厌成这样,我以为,我可以等到高考结束再找个机会对她说出我的心意,但一切都OVER了,从此之后,我们几乎没有再说过话,直到高考结束后的英语口语考试,我两在一个教室,我在左边的最后一排,我偷偷的瞄了她几眼,她正巧也回过头来,我想把视线移开缓解尴尬,没想到,她却没有回避,只是露出了从前的微笑…那便是我和她之间最后的故事。那是只属于我和她两人之间的回忆,没有任何其他人知道,我想她知道的吧,她一定知道的吧。  </li>
+<li>我很叛逆,但我不认为我不懂事,我从初中开始住校,一住就是六年,在我们那个普通县城里,我家离学校并不远,我想体验一下靠自己生活是什么感觉,我从小被家里人宠着,但是我被不想这样,或许小时候有点中二的原因吧,我特别小的时候就想证明我自己一个人也行,不想依靠别人,准确说,是不会,每次有人向我伸出援手的时候,我却以一种强硬的态度回绝了,我想这或许伤害到了一些人,我想对他们说一句对不起…  </li>
+<li>但在这个世界上,对不起或许是一句最没用的话,在高三那年发生了一件对我,也许不止我影响重大的事,“诶,你听说了吗?16班的那个英语老师去世了”“真的假的,不是上周还看见的吗?你听谁说的”“就是我去办公室的时候听XXX老师说的”,这是我在小卖部买零食的时候听见的。我和身边几个同班同学都很震惊,我们有些不愿相信,上周还好好的郭老师,怎么会…不过这几次课也确实是由李老师上的,我们都没多说,回到了寝室,我们很害怕,可能要面对一个残酷的现实,对我来说尤其如此。因为我可能犯了一个我一辈子都无法挽回的错。果然,第二天,班主任告诉了我们这件事,我记得当时,班上的女生都哭了,男生有的低头沉默,有的也忍不住眼泪,泣不成声。她是一位乐观积极的老师,同时也是我爸的老师,只不过,当时她还很年轻,叫我们时已经年过半百却依然有着乐观向上的心态。也许是知道我爸也是也是她的学生,她对我关照有佳,我记得高一的时候,我的英语整体还比较一般,但有些地方特别好,也许是对语言的天赋,但自己书写太差,规范性太差,主管题总是得很低的分,她把我叫到办公室,叫我每天练字交给她,你能想象吗?一个高中生,练字?我的同学可能都有点看笑话样的看我。但就是凭着我的天赋,慢慢的,他们英语考不过我了,也考了几次班上前三,准确说,在整个高二和高三的大部分时间,我都排在班上前几。但我的书写依然很差,只是其余方面的难度增加,才产生了这样的结果。在Mrs.Guo给我们上的最后一节课上,她提醒我上课不认真,后来又抽我回答问题,我只是用一句四川话直接回答了一句”我不晓得”,班上的同学可能已经见怪不怪了,因为我顶撞过几次老师了,然而这次我从她的眼中看出了一丝失望,也许是绝望,“学生,要先学会做人,再学会成才”,这或许是许多老师的宗旨,他们并不希望你多么聪明,只是希望自己的学生能做个对社会有用的人。但当时的我并不明白,我只是保持着我是天才,你能把我怎么着这样的态度,呗,天才个屁,就你,我真想给过去的自己两个耳光,当然,这句顶撞也就是我和郭老师最后的对话,那之后,在家里,突发哮喘,谁也不知道为什么多年未犯过的老毛病又犯了…我想过是因为我的原因,或许只是偶然,但真相是什么,谁也不知道。这份愧疚感,我没有对任何人说过,我爸妈问我,我也不敢给他们说过有这事,也不敢告诉我的同学,我害怕自己因此受到责怪,但好像没人记得我这件事…我依然没法原谅自己。  </li>
+<li>说来也巧,新的英语老师来的第一件事就是纠正我们全班的书写,我从小字写得就难看,但她教了我们一种写字方法,就是把字母写得很方,这样就能基本保持整洁,不会太难看,在这样的方法下,我的成绩又进一步得到了提升。因为我当时只有数学和英语两科比较稳定,其余科目时好时坏,我记得当时好像几次测样都考了第一,挺让人意外的。包括我自己也很意外,也许有我们班整体英语不是太好的原因,整个高三,各种考试只要不太难,我的英语基本保持在133以上。但是,在最后的高考,一套不太难的试卷,我的英语失常了,只考了126,基本就只算班上的中等水平,化学也失常,7道选择题错了3道,我知道,这也许是老天爷对我的惩罚,对我以前犯下的各种错。  </li>
+<li>好在我最后还是有书读,分数距离我高考前理想的大学差了20多分,也去不了省外的211,就在成都选择了一所普通一本,按照正常来说,我现在应该大二了,但由于种种原因(转专业),我自愿选择了留级一年去到我想去的计算机专业,很多人不会为一个专业这样选择,我走上了只有少数人体验过得大学生活,也算一种体验了。也就是说现在我还是大一的学生,读了大学,头一年正如我一开始所愿,我觉得好好玩,也没什么压力,和许多人一样,就是玩,各种不学习,hhh,那种生活还不错,就是少了些什么,因为我已经玩了一个暑假了,大一上又这么玩,我居然有一点不习惯,但还是这么浑浑噩噩地过去了,大一的寒假发生的事相信全世界的人也都知道了,也就是新冠疫情,我们学校整个大一的学生下学期都在上网课,最后的考试也都在网上考了,当然网课有多水,相信也不必多说了,只不过我怎么比上学期还差???hhh,算了,不计较。也就是在那段时间,我萌生了转专业的想法,我们那学期学了C语言,谭XX,你懂得,我对计算机也产生了一点兴趣,但那时候再转专业也就必须要留级了,因为我们学校只有一次转专业的机会,必须在大一上申请,但我错失了这次机会,本来希望也不大,所以阴差阳错也就成现在这样子了,这学期一过,就要真正的大二了,hhh好快啊,不久就要步入社会了,也面临着买房买车结婚这些事,在别人看来我的大学可能过得很惨,我却觉得自己很幸运,毕竟不是所有人都能学自己感兴趣的专业,但我也了解了许多,这个专业在学校学的不能找到工作,因为教的东西实在是太过时了,于是我开始了疯狂的自学,跟风学Java,学到了SSM框架发现自己对后端CRUD这些还是少了点兴趣,于是,我开始转向了前端的学习,其实这也是我的初心,学Java只是为了跟风,hhh我真傻,反正现在就这样了。我知道自己现在还很菜,还在学Vue,不久前学完了JS,ES6及以上,复习了CSS(好难写啊),HTML但好多都忘了。最近也看见了一位陌生人的个人博客,他也是学前端,别人的学校不如我们学校(基本差不多),但我从他的文章里看得出别人多么努力,也决心效仿他,包括技术栈上的效仿,他的方向就是我的方向…哈哈哈一个陌生人都会有这样的影响,我真是奇怪啊。但其实网上有许多我这样的人,我以前玩游戏也遇到过,他们对游戏里的好友我交流谈心,却不愿与亲近的人交流。我很难评价这种…或者是没有资格,因为每个人有时可能都会这样,有自己生活的苦衷。在网络世界里,或许能遇到一群有趣的人。  </li>
+<li>我想第三种人生,应该是一种不被定义的人生,自己的人生,不论好坏,不论发生过什么,都能找到方法,仰起头,再次前进。  </li>
+</ol>
+<ul>
+<li>最后附上一首力扣上看到的小诗:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">Your Own Time Zone</span><br><span class="line"></span><br><span class="line">纽约时间比加州时间早三个小时，</span><br><span class="line"></span><br><span class="line">New York is 3 hours ahead of California,</span><br><span class="line"></span><br><span class="line">但加州时间并没有变慢。</span><br><span class="line">but it does not make California slow.</span><br><span class="line"></span><br><span class="line">有人22岁就毕业了，</span><br><span class="line">Someone graduated at the age of 22,</span><br><span class="line"></span><br><span class="line">但等了五年才找到稳定的工作！</span><br><span class="line">but waited 5 years before securing a good job!</span><br><span class="line"></span><br><span class="line">有人25岁就当上CEO，</span><br><span class="line">Someone became a CEO at 25,</span><br><span class="line"></span><br><span class="line">却在50岁去世。</span><br><span class="line">and died at 50.</span><br><span class="line"></span><br><span class="line">也有人迟到50岁才当上CEO，</span><br><span class="line">While another became a CEO at 50,</span><br><span class="line"></span><br><span class="line">然后活到90岁。</span><br><span class="line">and lived to 90 years.</span><br><span class="line"></span><br><span class="line">有人单身，</span><br><span class="line">Someone is still single,</span><br><span class="line"></span><br><span class="line">同时也有人已婚。</span><br><span class="line">while someone else got married.</span><br><span class="line"></span><br><span class="line">欧巴马55岁就退休，</span><br><span class="line">Obama retires at 55,</span><br><span class="line"></span><br><span class="line">川普70岁才开始当总统。</span><br><span class="line">but Trump starts at 70.</span><br><span class="line"></span><br><span class="line">世上每个人本来就有自己的发展时区。</span><br><span class="line">Absolutely everyone in this world works based on their Time Zone.</span><br><span class="line"></span><br><span class="line">身边有些人看似走在你前面，</span><br><span class="line">People around you might seem to go ahead of you,</span><br><span class="line"></span><br><span class="line">也有人看似走在你后面。</span><br><span class="line">some might seem to be behind you.</span><br><span class="line"></span><br><span class="line">但其实每个人在自己的时区有自己的步程。</span><br><span class="line">But everyone is running their own RACE, in their own TIME.</span><br><span class="line"></span><br><span class="line">不用嫉妒或嘲笑他们。</span><br><span class="line">Don’t envy them or mock them.</span><br><span class="line"></span><br><span class="line">他们都在自己的时区里，你也是！</span><br><span class="line">They are in their TIME ZONE, and you are in yours!</span><br><span class="line"></span><br><span class="line">生命就是等待正确的行动时机。</span><br><span class="line">Life is about waiting for the right moment to act.</span><br><span class="line"></span><br><span class="line">所以，放轻松。</span><br><span class="line">So, RELAX.</span><br><span class="line"></span><br><span class="line">你没有落后。</span><br><span class="line">You’re not LATE.</span><br><span class="line"></span><br><span class="line">你没有领先。</span><br><span class="line">You’re not EARLY.</span><br><span class="line"></span><br><span class="line">在你自己的时区里，一切安排都准时。</span><br><span class="line"></span><br><span class="line">You are very much ON TIME, and in your TIME ZONE.</span><br></pre></td></tr></table></figure>
+<h3 id="什么时候开始都不算晚-加油吧。"><a href="#什么时候开始都不算晚-加油吧。" class="headerlink" title="什么时候开始都不算晚,加油吧。"></a>什么时候开始都不算晚,加油吧。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Take a deep breath,everything will be alright.</span><br><span class="line">                                            ————waakeme_up</span><br></pre></td></tr></table></figure></li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -501,7 +515,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://waakemeup.github.io/2021/02/25/LeetCode1314-%E7%9F%A9%E9%98%B5%E5%8C%BA%E5%9F%9F%E5%92%8C/">http://waakemeup.github.io/2021/02/25/LeetCode1314-%E7%9F%A9%E9%98%B5%E5%8C%BA%E5%9F%9F%E5%92%8C/</a>
+                    <a href="http://waakemeup.github.io/2021/04/11/%E8%AE%A4%E6%B8%85%E7%8E%B0%E5%AE%9E-%E6%B4%BB%E5%9C%A8%E5%BD%93%E4%B8%8B/">http://waakemeup.github.io/2021/04/11/%E8%AE%A4%E6%B8%85%E7%8E%B0%E5%AE%9E-%E6%B4%BB%E5%9C%A8%E5%BD%93%E4%B8%8B/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -539,8 +553,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                                    <span class="chip bg-color">动态规划</span>
+                                <a href="/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/">
+                                    <span class="chip bg-color">记录心情</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/">
+                                    <span class="chip bg-color">随便写写</span>
                                 </a>
                             
                         </div>
@@ -712,9 +730,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/04/11/%E8%AE%A4%E6%B8%85%E7%8E%B0%E5%AE%9E-%E6%B4%BB%E5%9C%A8%E5%BD%93%E4%B8%8B/">
                     <div class="card-image">
@@ -732,9 +751,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -743,6 +762,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -765,13 +785,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/27/LeetCode-1306-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F-III-BFS/">
+                <a href="/2021/02/25/LeetCode1314-%E7%9F%A9%E9%98%B5%E5%8C%BA%E5%9F%9F%E5%92%8C/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="LeetCode 1306. 跳跃游戏 III BFS">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="LeetCode1314. 矩阵区域和">
                         
-                        <span class="card-title">LeetCode 1306. 跳跃游戏 III BFS</span>
+                        <span class="card-title">LeetCode1314. 矩阵区域和</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -782,7 +802,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-25
                             </span>
                         <span class="publish-author">
                             
@@ -795,8 +815,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/BFS/">
-                        <span class="chip bg-color">BFS</span>
+                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                        <span class="chip bg-color">动态规划</span>
                     </a>
                     
                 </div>
