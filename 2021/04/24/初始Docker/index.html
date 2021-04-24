@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="后浪 ——致前端(转载), waakeme_up">
+    <meta name="keywords" content="初识Docker, waakeme_up">
     <meta name="description" content="这里是萌新一枚,请多多关照!">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>后浪 ——致前端(转载) | waakeme_up</title>
+    <title>初识Docker | waakeme_up</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">后浪 ——致前端(转载)</h1>
+                    <h1 class="description center-align post-title">初识Docker</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%BD%AC%E8%BD%BD/">
-                                <span class="chip bg-color">转载</span>
+                            <a href="/tags/Docker/">
+                                <span class="chip bg-color">Docker</span>
                             </a>
                         
                     </div>
@@ -447,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-21
+                    2021-04-24
                 </div>
                 
 
@@ -468,7 +468,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>那些口口声声，框架越来越难学的人，应该看着你们，像我一样。<br>我看着你们，满怀羡慕。人类调试了几十年兼容性的浏览器，所有的 bug、polyfill、crash 和 workaround，像是专门为你们准备的礼物。GitHub 繁荣、NPM 繁茂、W3C 繁华，现代 Web 的成果被层层打开，可以尽情地享用。<br>自由学习一门（脚本）语言，学习一种框架，欣赏一部（培训班）教学视频，去遥远的地方提 issue。很多人，从小你们就在自由探索自己的兴趣，很多人在大一就成为了 Node.js Collaborator，不惑于自己喜欢什么，不喜欢什么。人与人之间的壁垒被打破。你们只凭相同的运行时，就能安装千万个值得注入挖矿脚本的 NPM 包。你们拥有了我们曾经梦寐以求的权利，npm install 的权利。<br>你所热爱的，就是你的 996！你们有幸遇见这样的 Web，但是 Web 更有幸遇见这样的你们。<br>我看着你们，满怀敬意，向你们的专业态度致敬！你们正在把 JS 的变成 TS 的，把 TS 的变成 C++ 的，把 C++ 的变成 Rust 的，把 Rust 的再变成 JS 的。你们把自己的热爱，变成了一个和成千上万的人分享 Todo MVC 写法的事业，向你们的自信致敬！<br>弱小的人，才害怕 React 和 Vue。内心强大的人，从不畏惧小程序与 IE。向你们的大气致敬！小白同而不和，大神美美与共，和而不同。更年轻的身体，容得下更多元的代码风格、编程范式和技术栈。有一天我终于发现，不只是我们在教你们如何提 issue，你们也在启发我们怎样去更好地刷star。那些抱怨一代不如一代的人，应该看看你们，就像我一样。<br>我看着你们，满怀感激。因为你们，这个世界会更喜欢 JavaScript。因为一个社区最好看的风景，就是这个社区的伸手党。因为你们，这世上的文档、博客、专栏所表现的程序员就不再是谢顶、猝死、迷茫，而是 <code>ReferenceError</code>、<code>SyntaxError</code>、<code>RangeError</code>、<code>TypeError</code>，是心里有福报，眼里有加班，不用活到我们想象中的寿命。<br>我们这一代人的想象力不足以想象你们 <code>undefined</code> 的未来，如果你们依然需要我们的祝福，那么——<br>上线吧，前端！我们在同一个残废的互联网。</p>
+                <h2 id="Docker是什么"><a href="#Docker是什么" class="headerlink" title="Docker是什么"></a>Docker是什么</h2><p>Docker是一个虚拟环境容器,可以将你的开发环境、代码、配置文件等一并打包到这个容器中，并发布和应用到任意平台中。<br>使用Docker可以在任意Linux内核上运行其他Linux发行版,所以很就是方便。虽然对我这个只会用Ubuntu的小白来说没什么ruan用。只是体验一下,满足我的好奇心。</p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>我的Linux版本是Ubuntu20.04,首先下载Docker<br><code>apt-get install docker.io</code></p>
+<h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><p>拉去centos镜像<br><code>docker pull centos</code><br>这样把centos存储到本地仓库,可用<code>docker images</code>或者<code>docker image list</code>查看目前仓库。  </p>
+<ul>
+<li>了解一下docker的镜像(image)、容器(contianer)、仓库(Repository)的关系:(以下摘自知乎)  </li>
+</ul>
+<ol>
+<li>镜像（Image）：类似于虚拟机中的镜像，是一个包含有文件系统的面向Docker引擎的只读模板。任何应用程序运行都需要环境，而镜像就是用来提供这种运行环境的。例如一个Ubuntu镜像就是一个包含Ubuntu操作系统环境的模板，同理在该镜像上装上Apache软件，就可以称为Apache镜像。      </li>
+<li>容器（Container）：类似于一个轻量级的沙盒，可以将其看作一个极简的Linux系统环境（包括root权限、进程空间、用户空间和网络空间等），以及运行在其中的应用程序。Docker引擎利用容器来运行、隔离各个应用。容器是镜像创建的应用实例，可以创建、启动、停止、删除容器，各个容器之间是是相互隔离的，互不影响。注意：镜像本身是只读的，容器从镜像启动时，Docker在镜像的上层创建一个可写层，镜像本身不变。</li>
+<li>仓库（Repository）：类似于代码仓库，这里是镜像仓库，是Docker用来集中存放镜像文件的地方。注意与注册服务器（Registry）的区别：注册服务器是存放仓库的地方，一般会有多个仓库；而仓库是存放镜像的地方，一般每个仓库存放一类镜像，每个镜像利用tag进行区分，比如Ubuntu仓库存放有多个版本（12.04、14.04等）的Ubuntu镜像。<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/23599229">原文链接</a></li>
+</ol>
+<ul>
+<li>如何run一个docker容器<br><code>docker run -it centos $&#123;yourpath&#125;</code>  </li>
+<li>it是-i和-t的简写: -i表示交互,-t表示创建一个tty终端,然后会进入centos的tty,然后用yum下载一些依赖,我不太懂centos的shell,只有靠google,我太菜了。最后想退出这个tty时,可以输入exit,这样的话最后这个容器的status也会是exit,如果退出时不想关闭,可以使用<code>ctrl+p,ctrl+q</code>退出,这样的结果就会是up。<br>如果在退出tty后再修改的话在Ubuntu终端输入<code>docker ps -a</code>查看所有容器的状态,如果容器状态为up,进入这个容器只需要输入<code>docker attach $&#123;contain_id&#125;</code>即可进入这个容器,若状态为exit之类的,则需要先开启这个容器<code>docker start $&#123;contain_id&#125;</code>,此时状态改回up。 </li>
+<li>删除一个容器<br><code>docker rm $&#123;contain_id&#125;</code></li>
+<li>停止一个容器<br><code>docker stop $&#123;contain_id&#125;</code> </li>
+<li>保存一个容器为镜像<br>将容器转化为一个镜像，即执行commit操作，<code>docker commit -m &quot;centos with git&quot; -a &quot;waakemeup&quot; 72f1a8a0e394 waakemeup/centos:git</code>完成后可使用docker images查看结果。<h3 id="背后的故事"><a href="#背后的故事" class="headerlink" title="背后的故事"></a>背后的故事</h3>为什么想到突然学习docker,这应该是偏向运维的知识,和我想做的Front-end developer没什么关联,之前我在另一篇blog上说了,我要模仿’他’,正巧在’他’的个人空间里看见了’他’的记载,所以我参考了’他’的文章折腾了5、6个小时,也算是对Docker有了一个基本的认识,在有余力的前提下多学一点东西总没错的,正巧我的服务器也是Ubuntu,所以很方便。这只是一篇个人博客,是记给自己看的,很多东西不太严谨,不要太较真。大佬笑笑就好,我只是一个正在成长的小白罢了。 </li>
+<li>附上自己折腾后的成果<br><img src="%22../../../../blog-img/foo.webp%22" alt="折腾"></li>
+</ul>
 
                 
             </div>
@@ -495,7 +513,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://waakemeup.github.io/2021/04/21/%E5%90%8E%E6%B5%AA-%E2%80%94%E2%80%94%E8%87%B4%E5%89%8D%E7%AB%AF-%E8%BD%AC%E8%BD%BD/">http://waakemeup.github.io/2021/04/21/%E5%90%8E%E6%B5%AA-%E2%80%94%E2%80%94%E8%87%B4%E5%89%8D%E7%AB%AF-%E8%BD%AC%E8%BD%BD/</a>
+                    <a href="http://waakemeup.github.io/2021/04/24/%E5%88%9D%E5%A7%8BDocker/">http://waakemeup.github.io/2021/04/24/%E5%88%9D%E5%A7%8BDocker/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -533,8 +551,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%BD%AC%E8%BD%BD/">
-                                    <span class="chip bg-color">转载</span>
+                                <a href="/tags/Docker/">
+                                    <span class="chip bg-color">Docker</span>
                                 </a>
                             
                         </div>
@@ -706,9 +724,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/04/24/%E5%88%9D%E5%A7%8BDocker/">
                     <div class="card-image">
@@ -726,9 +745,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -737,6 +756,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -755,13 +775,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/11/%E8%AE%A4%E6%B8%85%E7%8E%B0%E5%AE%9E-%E6%B4%BB%E5%9C%A8%E5%BD%93%E4%B8%8B/">
+                <a href="/2021/04/21/%E5%90%8E%E6%B5%AA-%E2%80%94%E2%80%94%E8%87%B4%E5%89%8D%E7%AB%AF-%E8%BD%AC%E8%BD%BD/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="认清现实,活在当下">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="后浪 ——致前端(转载)">
                         
-                        <span class="card-title">认清现实,活在当下</span>
+                        <span class="card-title">后浪 ——致前端(转载)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -772,7 +792,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-21
                             </span>
                         <span class="publish-author">
                             
@@ -785,12 +805,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/">
-                        <span class="chip bg-color">记录心情</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/">
-                        <span class="chip bg-color">随便写写</span>
+                    <a href="/tags/%E8%BD%AC%E8%BD%BD/">
+                        <span class="chip bg-color">转载</span>
                     </a>
                     
                 </div>
