@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="初识Docker, waakeme_up">
+    <meta name="keywords" content="LeetCode 1306. 跳跃游戏 III BFS, waakeme_up">
     <meta name="description" content="这里是萌新一枚,请多多关照!">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>初识Docker | waakeme_up</title>
+    <title>LeetCode 1306. 跳跃游戏 III BFS | waakeme_up</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -29,7 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="waakeme_up" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -310,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">初识Docker</h1>
+                    <h1 class="description center-align post-title">LeetCode 1306. 跳跃游戏 III BFS</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +434,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Docker/">
-                                <span class="chip bg-color">Docker</span>
+                            <a href="/tags/BFS/">
+                                <span class="chip bg-color">BFS</span>
                             </a>
                         
                     </div>
@@ -447,17 +450,37 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-24
+                    2021-01-27
                 </div>
                 
 
                 
-
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-01-27
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    490
+                </div>
+                
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    2 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
         <hr class="clearfix">
@@ -468,25 +491,16 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Docker是什么"><a href="#Docker是什么" class="headerlink" title="Docker是什么"></a>Docker是什么</h2><p>Docker是一个虚拟环境容器,可以将你的开发环境、代码、配置文件等一并打包到这个容器中，并发布和应用到任意平台中。<br>使用Docker可以在任意Linux内核上运行其他Linux发行版,所以很就是方便。虽然对我这个只会用Ubuntu的小白来说没什么ruan用。只是体验一下,满足我的好奇心。</p>
-<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>我的Linux版本是Ubuntu20.04,首先下载Docker<br><code>apt-get install docker.io</code></p>
-<h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><p>拉去centos镜像<br><code>docker pull centos</code><br>这样把centos存储到本地仓库,可用<code>docker images</code>或者<code>docker image list</code>查看目前仓库。  </p>
-<ul>
-<li>了解一下docker的镜像(image)、容器(contianer)、仓库(Repository)的关系:(以下摘自知乎)  </li>
-</ul>
-<ol>
-<li>镜像（Image）：类似于虚拟机中的镜像，是一个包含有文件系统的面向Docker引擎的只读模板。任何应用程序运行都需要环境，而镜像就是用来提供这种运行环境的。例如一个Ubuntu镜像就是一个包含Ubuntu操作系统环境的模板，同理在该镜像上装上Apache软件，就可以称为Apache镜像。      </li>
-<li>容器（Container）：类似于一个轻量级的沙盒，可以将其看作一个极简的Linux系统环境（包括root权限、进程空间、用户空间和网络空间等），以及运行在其中的应用程序。Docker引擎利用容器来运行、隔离各个应用。容器是镜像创建的应用实例，可以创建、启动、停止、删除容器，各个容器之间是是相互隔离的，互不影响。注意：镜像本身是只读的，容器从镜像启动时，Docker在镜像的上层创建一个可写层，镜像本身不变。</li>
-<li>仓库（Repository）：类似于代码仓库，这里是镜像仓库，是Docker用来集中存放镜像文件的地方。注意与注册服务器（Registry）的区别：注册服务器是存放仓库的地方，一般会有多个仓库；而仓库是存放镜像的地方，一般每个仓库存放一类镜像，每个镜像利用tag进行区分，比如Ubuntu仓库存放有多个版本（12.04、14.04等）的Ubuntu镜像。<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/23599229">原文链接</a></li>
-</ol>
-<ul>
-<li>如何run一个docker容器<br><code>docker run -it centos $&#123;yourpath&#125;</code>  </li>
-<li>it是-i和-t的简写: -i表示交互,-t表示创建一个tty终端,然后会进入centos的tty,然后用yum下载一些依赖,我不太懂centos的shell,只有靠google,我太菜了。最后想退出这个tty时,可以输入exit,这样的话最后这个容器的status也会是exit,如果退出时不想关闭,可以使用<code>ctrl+p,ctrl+q</code>退出,这样的结果就会是up。<br>如果在退出tty后再修改的话在Ubuntu终端输入<code>docker ps -a</code>查看所有容器的状态,如果容器状态为up,进入这个容器只需要输入<code>docker attach $&#123;contain_id&#125;</code>即可进入这个容器,若状态为exit之类的,则需要先开启这个容器<code>docker start $&#123;contain_id&#125;</code>,此时状态改回up。 </li>
-<li>删除一个容器<br><code>docker rm $&#123;contain_id&#125;</code></li>
-<li>停止一个容器<br><code>docker stop $&#123;contain_id&#125;</code> </li>
-<li>保存一个容器为镜像<br>将容器转化为一个镜像，即执行commit操作，<code>docker commit -m &quot;centos with git&quot; -a &quot;waakemeup&quot; 72f1a8a0e394 waakemeup/centos:git</code>完成后可使用docker images查看结果。<h3 id="背后的故事"><a href="#背后的故事" class="headerlink" title="背后的故事"></a>背后的故事</h3>为什么想到突然学习docker,这应该是偏向运维的知识,和我想做的Front-end developer没什么关联,之前我在另一篇blog上说了,我要模仿’他’,正巧在’他’的个人空间里看见了’他’的记载,所以我参考了’他’的文章折腾了5、6个小时,也算是对Docker有了一个基本的认识,在有余力的前提下多学一点东西总没错的,正巧我的服务器也是Ubuntu,所以很方便。这只是一篇个人博客,是记给自己看的,很多东西不太严谨,不要太较真。大佬笑笑就好,我只是一个正在成长的小白罢了。 </li>
-<li>附上自己折腾后的成果<br><img src="%22../../../../blog-img/foo.webp%22" alt="折腾"></li>
-</ul>
+                <h1 id="1306-跳跃游戏-III"><a href="#1306-跳跃游戏-III" class="headerlink" title="1306. 跳跃游戏 III"></a>1306. 跳跃游戏 III</h1><p>这里有一个非负整数数组&nbsp;arr，你最开始位于该数组的起始下标&nbsp;start&nbsp;处。当你位于下标&nbsp;i&nbsp;处时，你可以跳到&nbsp;i + arr[i] 或者 i - arr[i]。</p>
+<p>请你判断自己是否能够跳到对应元素值为 0 的 任一 下标处。</p>
+<p>注意，不管是什么情况下，你都无法跳到数组之外。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/jump-game-iii">https://leetcode-cn.com/problems/jump-game-iii</a></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [4,2,3,0,3,1,2], start = 5</span><br><span class="line">输出：true</span><br><span class="line">解释：</span><br><span class="line">到达值为 0 的下标 3 有以下可能方案： </span><br><span class="line">下标 5 -&gt; 下标 4 -&gt; 下标 1 -&gt; 下标 3 </span><br><span class="line">下标 5 -&gt; 下标 6 -&gt; 下标 4 -&gt; 下标 1 -&gt; 下标 3 </span><br></pre></td></tr></tbody></table></figure>
+<h3 id="最近在刷DFS，BFS的一些模板题，觉得这道题挺不错的，记录一下"><a href="#最近在刷DFS，BFS的一些模板题，觉得这道题挺不错的，记录一下" class="headerlink" title="最近在刷DFS，BFS的一些模板题，觉得这道题挺不错的，记录一下"></a>最近在刷DFS，BFS的一些模板题，觉得这道题挺不错的，记录一下</h3><p>先附上BFS模板:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void BFS(int s){</span><br><span class="line">    queue&lt;int&gt; q;</span><br><span class="line">    q.push(s);</span><br><span class="line">    while(!q.empty()){</span><br><span class="line">        取出队首元素;</span><br><span class="line">        访问队首元素;</span><br><span class="line">        队首元素出队;</span><br><span class="line">        将下一层未曾入队的元素入队,并设置为已经入队;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>说说这题，基本也是按照这种模板，想到让入队的是下标，不是下标对应的值，也必须设置一个数组来判断下标当前是否已近入过队,在过程中遇到下标值为0返回true,未遇到则在搜索结束后返回false,CPP代码如下:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution {</span><br><span class="line">public:</span><br><span class="line">    bool canReach(vector&lt;int&gt;&amp; arr, int start) {</span><br><span class="line">        vector&lt;int&gt; res(arr.size(),0);</span><br><span class="line">        queue&lt;int&gt; q;</span><br><span class="line">        q.push(start);</span><br><span class="line">        while(!q.empty()){</span><br><span class="line">            int now=q.front();</span><br><span class="line">            q.pop();</span><br><span class="line">            if(arr[now]==0) return true;    </span><br><span class="line">            if(now+arr[now]&lt;arr.size()&amp;&amp;res[now+arr[now]]==0){</span><br><span class="line">                q.push(now+arr[now]);</span><br><span class="line">                res[now+arr[now]]=1;</span><br><span class="line">            }</span><br><span class="line">            if(now-arr[now]&gt;=0&amp;&amp;res[now-arr[now]]==0){</span><br><span class="line">                q.push(now-arr[now]);</span><br><span class="line">                res[now-arr[now]]=1;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        return false;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+<p>题目不算难，重要的是思想，一开始没想好去瞟了眼答案才反应过来，所以记录一下，OVER</p>
 
                 
             </div>
@@ -513,7 +527,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://waakemeup.github.io/2021/04/24/%E5%88%9D%E5%A7%8BDocker/">http://waakemeup.github.io/2021/04/24/%E5%88%9D%E5%A7%8BDocker/</a>
+                    <a href="http://waakemeup.github.io/2021/01/27/leetcode-1306-tiao-yue-you-xi-iii-bfs/">http://waakemeup.github.io/2021/01/27/leetcode-1306-tiao-yue-you-xi-iii-bfs/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -551,8 +565,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Docker/">
-                                    <span class="chip bg-color">Docker</span>
+                                <a href="/tags/BFS/">
+                                    <span class="chip bg-color">BFS</span>
                                 </a>
                             
                         </div>
@@ -712,6 +726,272 @@
     
 
     
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'OxjeVAIzLSlx2FPbHHy5hXfG-MdYXbMMI',
+        appKey: 'BNmM2zgzdgVmLrRi3E33nN2B',
+        notify: 'true' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'retro',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'Comment here,欢迎留言啊大家'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
 
     
 
@@ -728,13 +1008,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/04/25/%E5%AF%B9%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%B8%80%E4%B8%9D%E7%84%A6%E8%99%91/">
+                <a href="/2021/02/25/leetcode1314-ju-zhen-qu-yu-he/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="对未来的一丝焦虑">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="LeetCode1314. 矩阵区域和">
                         
-                        <span class="card-title">对未来的一丝焦虑</span>
+                        <span class="card-title">LeetCode1314. 矩阵区域和</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -745,7 +1025,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-25
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-25
                         </span>
                         <span class="publish-author">
                             
@@ -758,8 +1038,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/">
-                        <span class="chip bg-color">记录心情</span>
+                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                        <span class="chip bg-color">动态规划</span>
                     </a>
                     
                 </div>
@@ -773,13 +1053,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/21/%E5%90%8E%E6%B5%AA-%E2%80%94%E2%80%94%E8%87%B4%E5%89%8D%E7%AB%AF-%E8%BD%AC%E8%BD%BD/">
+                <a href="/2021/01/25/ji-lu-di-yi-ci-shi-yong-markdown/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="后浪 ——致前端(转载)">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="记录第一次使用MarkDown">
                         
-                        <span class="card-title">后浪 ——致前端(转载)</span>
+                        <span class="card-title">记录第一次使用MarkDown</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -790,7 +1070,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-25
                             </span>
                         <span class="publish-author">
                             
@@ -803,8 +1083,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%BD%AC%E8%BD%BD/">
-                        <span class="chip bg-color">转载</span>
+                    <a href="/tags/MarkDown/">
+                        <span class="chip bg-color">MarkDown</span>
                     </a>
                     
                 </div>
@@ -1006,6 +1286,9 @@
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">8.3k</span>&nbsp;字
+            
             
             
             
@@ -1051,6 +1334,10 @@
 
 
 
+
+    <a href="https://www.zhihu.com/people/ke-li-si-ting-si-tu-er-te-44" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/ke-li-si-ting-si-tu-er-te-44" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
 
 
 
