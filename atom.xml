@@ -6,7 +6,7 @@
   <link href="http://waakemeup.github.io/atom.xml" rel="self"/>
   
   <link href="http://waakemeup.github.io/"/>
-  <updated>2021-05-07T12:43:44.611Z</updated>
+  <updated>2021-05-09T14:58:53.063Z</updated>
   <id>http://waakemeup.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我真的努力了吗?</title>
+    <link href="http://waakemeup.github.io/2021/05/09/wo-zhen-de-nu-li-liao-ma/"/>
+    <id>http://waakemeup.github.io/2021/05/09/wo-zhen-de-nu-li-liao-ma/</id>
+    <published>2021-05-09T14:37:43.000Z</published>
+    <updated>2021-05-09T14:58:53.063Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;我每天究竟在干什么&quot;&gt;&lt;a href=&quot;#我每天究竟在干什么&quot; class=&quot;headerlink&quot; title=&quot;我每天究竟在干什么?&quot;&gt;&lt;/a&gt;我每天究竟在干什么?&lt;/h2&gt;&lt;p&gt;我不知道。&lt;/p&gt;
+&lt;h2 id=&quot;我做的事有意义吗&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="life" scheme="http://waakemeup.github.io/categories/life/"/>
+    
+    <category term="thinking" scheme="http://waakemeup.github.io/categories/life/thinking/"/>
+    
+    
+    <category term="记录心情" scheme="http://waakemeup.github.io/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
   
   <entry>
     <title>关于JS数组的reduce方法</title>
@@ -63,9 +91,9 @@
     <category term="life" scheme="http://waakemeup.github.io/categories/life/"/>
     
     
-    <category term="记录心情" scheme="http://waakemeup.github.io/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/"/>
-    
     <category term="随便写写" scheme="http://waakemeup.github.io/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
+    
+    <category term="记录心情" scheme="http://waakemeup.github.io/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/"/>
     
   </entry>
   
@@ -169,9 +197,9 @@
     <category term="thinking" scheme="http://waakemeup.github.io/categories/life/thinking/"/>
     
     
-    <category term="记录心情" scheme="http://waakemeup.github.io/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/"/>
-    
     <category term="随便写写" scheme="http://waakemeup.github.io/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
+    
+    <category term="记录心情" scheme="http://waakemeup.github.io/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/"/>
     
   </entry>
   
