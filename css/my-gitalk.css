@@ -107,16 +107,21 @@ ol li {
     list-style-type: circle;
 }
 
-.markdown-body table, th, td {
+.markdown-body table,
+th,
+td {
     padding: 12px 13px;
     border: 1px solid #dfe2e5;
 }
 
-.markdown-body table, th, td {
+.markdown-body table,
+th,
+td {
     border: 0;
 }
 
-table tr:nth-child(2n), thead {
+table tr:nth-child(2n),
+thead {
     background-color: #fafafa;
 }
 
@@ -216,7 +221,8 @@ pre[class*="language-"] {
     color: #e8eaf6;
 }
 
-.markdown-body [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+.markdown-body [type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
     position: inherit;
     margin-left: -1.3rem;
     margin-right: 0.4rem;
