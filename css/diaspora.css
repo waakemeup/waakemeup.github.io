@@ -176,7 +176,7 @@ audio {
     background-repeat: no-repeat;
     background-position: center center;
     -webkit-mask-box-image: url("/img/logo.jpeg");
-    /* background-color: white; */
+    background-color: transparent;
     width: 50px;
     height: 50px;
     mask-image: url("/img/logo.jpeg");
@@ -185,7 +185,7 @@ audio {
 }
 
 body.mu .image-logo {
-    background-color: black;
+    background-color: transparent;
 }
 
 #vibrant {
