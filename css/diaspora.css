@@ -170,16 +170,16 @@ audio {
     z-index: 4;
     position: relative;
     display: inline-block;
-    -webkit-background-size: 75px 32px;
-    -moz-background-size: 75px 32px;
-    background-size: 75px 32px;
+    -webkit-background-size: 50px 50px;
+    -moz-background-size: 50px 50px;
+    background-size: 50px 50px;
     background-repeat: no-repeat;
     background-position: center center;
     -webkit-mask-box-image: url("/img/logo.jpeg");
-    background-color: white;
-    width: 75px;
-    height: 32px;
-    mask-image: url("/img/logo.png");
+    /* background-color: white; */
+    width: 50px;
+    height: 50px;
+    mask-image: url("/img/logo.jpeg");
     mask-size: contain;
     transition: background-color 0.5s ease-in-out;
 }
