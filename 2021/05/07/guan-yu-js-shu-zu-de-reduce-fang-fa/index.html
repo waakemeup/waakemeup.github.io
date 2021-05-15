@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>关于JS数组的reduce方法 - waakeme_up</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="waakemeup,"> 
+    <meta name="description" content="这里是萌新一枚,请多多关照!,语法arr.reduce(callback(accumulator, currentValue[, index[, array]])[, initialValue])
+解析回调函数有四个参数
+acc,"> 
+    <meta name="author" content="waakemeup"> 
+    <link rel="alternative" href="atom.xml" title="waakeme_up" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.jpeg"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">waakeme_up</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://waakemeup.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">关于JS数组的reduce方法</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">关于JS数组的reduce方法</h1>
+        <div class="stuff">
+            <span>五月 07, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p><code>arr.reduce(callback(accumulator, currentValue[, index[, array]])[, initialValue])</code></p>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><h4 id="回调函数有四个参数"><a href="#回调函数有四个参数" class="headerlink" title="回调函数有四个参数"></a>回调函数有四个参数</h4><ol>
+<li>accumulator:累加器</li>
+<li>currentValue:当前值</li>
+<li>index(可选):当前索引</li>
+<li>array(可选):调用reduce的数组<h4 id="第二个参数-可选"><a href="#第二个参数-可选" class="headerlink" title="第二个参数(可选)"></a>第二个参数(可选)</h4>initialValue:初始值,作为第一次调用 callback函数时的第一个参数的值。 如果没有提供初始值，则将使用数组中的第一个元素。 在没有初始值的空数组上调用 reduce 将报错。 (摘自MDN文档)<h2 id="以下是几个案例"><a href="#以下是几个案例" class="headerlink" title="以下是几个案例"></a>以下是几个案例</h2><h3 id="Case-1"><a href="#Case-1" class="headerlink" title="Case 1"></a>Case 1</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var sum = [0, 1, 2, 3, 4, 5].reduce((accumulator, currentValue, currentIndex, array) =&gt; {</span><br><span class="line">        console.log("currentValue: " + accumulator);</span><br><span class="line">        return accumulator + currentValue</span><br><span class="line">    }, 10)</span><br><span class="line">    /*currentValue: 10</span><br><span class="line">    currentValue: 10</span><br><span class="line">    currentValue: 11</span><br><span class="line">    currentValue: 13</span><br><span class="line">    currentValue: 16</span><br><span class="line">    currentValue: 20 */</span><br><span class="line"></span><br><span class="line">console.log(sum) //25</span><br></pre></td></tr></tbody></table></figure>
+通过这个案例了解基本执行顺序<h3 id="Case-2"><a href="#Case-2" class="headerlink" title="Case 2"></a>Case 2</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var flattend = [</span><br><span class="line">    [0, 1],</span><br><span class="line">    [2, 3],</span><br><span class="line">    [4, 5]</span><br><span class="line">].reduce(</span><br><span class="line">    function(a, b) {</span><br><span class="line">        return a.concat(b)</span><br><span class="line">    }</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">console.log(flattend)</span><br></pre></td></tr></tbody></table></figure>
+也可通过此函数对二维数组进行铺平,起到flat/flatMap的作用<h3 id="Case-3"><a href="#Case-3" class="headerlink" title="Case 3"></a>Case 3</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const names = ['ly', 'lly', 'lyy', 'ly', 'lh']</span><br><span class="line"></span><br><span class="line">var countName = names.reduce(</span><br><span class="line">    function(allName, name) {</span><br><span class="line">        if (name in allName) {</span><br><span class="line">            allName[name]++</span><br><span class="line">        } else {</span><br><span class="line">            allName[name] = 1</span><br><span class="line">        }</span><br><span class="line">        return allName</span><br><span class="line">    }, {}</span><br><span class="line">)</span><br><span class="line">console.log(countName)</span><br><span class="line">//{ ly: 2, lly: 1, lyy: 1, lh: 1 }</span><br></pre></td></tr></tbody></table></figure>
+统计数组中每个元素出现的次数,类似上面<h3 id="Case-4"><a href="#Case-4" class="headerlink" title="Case 4"></a>Case 4</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var people = [</span><br><span class="line">    { name: 'ly', age: 20 },</span><br><span class="line">    { name: 'lg', age: 24 },</span><br><span class="line">    { name: 'lhc', age: 20 }</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">function groupBy(Array, Property) {</span><br><span class="line">    return Array.reduce((acc, obj) =&gt; {</span><br><span class="line">        var key = obj[Property]</span><br><span class="line">        if (!acc[key]) {</span><br><span class="line">            acc[key] = []</span><br><span class="line">        }</span><br><span class="line">        acc[key].push(obj)</span><br><span class="line">        return acc</span><br><span class="line">    }, {})</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">var groupByAgePeople = groupBy(people, 'age') //第二个参数必须是字符串类型</span><br><span class="line">console.log(groupByAgePeople);</span><br><span class="line">/*</span><br><span class="line">{</span><br><span class="line">  '20': [ { name: 'ly', age: 20 }, { name: 'lhc', age: 20 } ],</span><br><span class="line">  '24': [ { name: 'lg', age: 24 } ]</span><br><span class="line">}</span><br><span class="line">*/</span><br></pre></td></tr></tbody></table></figure>
+按照属性对对象分类,也是类似上面…<h3 id="Case-5"><a href="#Case-5" class="headerlink" title="Case 5"></a>Case 5</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">function RunPromiseInSequence(arr, input) {</span><br><span class="line">    return arr.reduce((PromiseChain, currentFunc) =&gt;</span><br><span class="line">        PromiseChain.then(currentFunc), Promise.resolve(input))</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">function punc1(a) {</span><br><span class="line">    return new Promise((resolve, reject) =&gt;</span><br><span class="line">        resolve(a * 3)</span><br><span class="line">    )</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">function punc2(a) {</span><br><span class="line">    return new Promise((resolve, reject) =&gt;</span><br><span class="line">        resolve(a * 2)</span><br><span class="line">    )</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">function func3(a) {</span><br><span class="line">    return a * 5</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">function punc4(a) {</span><br><span class="line">    return new Promise((resolve, reject) =&gt;</span><br><span class="line">        resolve(a * 4)</span><br><span class="line">    )</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">const Parr = [punc1, punc2, func3, punc4]</span><br><span class="line"></span><br><span class="line">RunPromiseInSequence(Parr, 2)</span><br><span class="line">    .then(console.log) //240</span><br></pre></td></tr></tbody></table></figure>
+按顺序执行promise对象<br>重点说这个,先定义一个函数<code>RunPromiseInSequence</code>,第一个参数为一个数组<code>arr</code>,对这个数组使用reduce方法,简单来说,这个数组里面每个元素都是一个函数,<code>PromiseChain</code>相当于<code>accumulator</code>,只不过不再是累加,而是依次调用函数,每个函数中又对它的参数解析,按数组顺序依次执行。对于第三个函数,它会被.then包裹在一个已经解决的Promise对象中。(说真的,我不懂这句话什么意思,我感觉应该是<code>Promise.resolve(input)</code>把上一步的输出(一个普通Number),会再解析为一个resolved的Promise对象?)<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3>JavaScript并不是一门简单的语言,坑很多,我在恶补一些基础,我基础太差了,太差了,太差了,这个方法应该是Array对象方法里很重要也较难理解的一个,故记录,要是理解有误望指出。</li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='true'
+        data-ae='true'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90"><span class="toc-number">1.1.</span> <span class="toc-text">解析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E6%9C%89%E5%9B%9B%E4%B8%AA%E5%8F%82%E6%95%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text">回调函数有四个参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0-%E5%8F%AF%E9%80%89"><span class="toc-number">1.1.2.</span> <span class="toc-text">第二个参数(可选)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E6%98%AF%E5%87%A0%E4%B8%AA%E6%A1%88%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">以下是几个案例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Case-1"><span class="toc-number">2.1.</span> <span class="toc-text">Case 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Case-2"><span class="toc-number">2.2.</span> <span class="toc-text">Case 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Case-3"><span class="toc-number">2.3.</span> <span class="toc-text">Case 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Case-4"><span class="toc-number">2.4.</span> <span class="toc-text">Case 4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Case-5"><span class="toc-number">2.5.</span> <span class="toc-text">Case 5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.6.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
