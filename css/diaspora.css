@@ -869,7 +869,9 @@ body.mu .icon-logo {
 }
 
 #single {
-    background: #fff;
+    /* background: #fff; */
+    background: url(https://random.52ecy.cn/randbg.php) no-repeat fixed;
+    opacity: 0.85;
     position: relative;
     overflow-x: hidden;
 }
