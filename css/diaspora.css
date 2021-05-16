@@ -873,8 +873,8 @@ body.mu .icon-logo {
     /* background: #fff; */
     background: url("../img/back4.jpeg") no-repeat fixed;
     background-size: cover;
-    filter: blur(2.5px);
-    opacity: 0.85;
+    /* filter: blur(2.5px); */
+    opacity: 0.95;
     position: relative;
     overflow-x: hidden;
 }
