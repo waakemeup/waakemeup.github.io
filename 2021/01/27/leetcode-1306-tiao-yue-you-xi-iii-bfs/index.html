@@ -13,16 +13,17 @@
     <meta name="description" content="这里是萌新一枚,请多多关照!,1306. 跳跃游戏 III这里有一个非负整数数组&amp;nbsp;arr，你最开始位于该数组的起始下标&amp;nbsp;start&amp;nbsp;处。当你位于下标&amp;nbsp;i&amp;nbsp;处时，你可以跳到&amp;nbs,"> 
     <meta name="author" content="waakemeup"> 
     <link rel="alternative" href="atom.xml" title="waakeme_up" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.jpeg"> 
+    <link rel="icon" href="../../../../img/favicon.jpeg"> 
     
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<link rel="stylesheet" href="../../../../cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
     
-<link rel="stylesheet" href="/css/diaspora.css">
+<link rel="stylesheet" href="../../../../css/diaspora.css">
 
 <meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body class="loading">
     <span id="config-title" style="display:none">waakeme_up</span>
@@ -51,7 +52,7 @@
         <div class="stuff">
             <span>一月 27, 2021</span>
             
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/BFS/" rel="tag">BFS</a></li></ul>
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="../../../../tags/BFS/" rel="tag">BFS</a></li></ul>
 
 
         </div>
@@ -60,11 +61,46 @@
 <p>请你判断自己是否能够跳到对应元素值为 0 的 任一 下标处。</p>
 <p>注意，不管是什么情况下，你都无法跳到数组之外。</p>
 <p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/jump-game-iii">https://leetcode-cn.com/problems/jump-game-iii</a></p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [4,2,3,0,3,1,2], start = 5</span><br><span class="line">输出：true</span><br><span class="line">解释：</span><br><span class="line">到达值为 0 的下标 3 有以下可能方案： </span><br><span class="line">下标 5 -&gt; 下标 4 -&gt; 下标 1 -&gt; 下标 3 </span><br><span class="line">下标 5 -&gt; 下标 6 -&gt; 下标 4 -&gt; 下标 1 -&gt; 下标 3 </span><br></pre></td></tr></tbody></table></figure>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><pre class="line-numbers language-none"><code class="language-none">输入：arr = [4,2,3,0,3,1,2], start = 5
+输出：true
+解释：
+到达值为 0 的下标 3 有以下可能方案： 
+下标 5 -&gt; 下标 4 -&gt; 下标 1 -&gt; 下标 3 
+下标 5 -&gt; 下标 6 -&gt; 下标 4 -&gt; 下标 1 -&gt; 下标 3 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="最近在刷DFS，BFS的一些模板题，觉得这道题挺不错的，记录一下"><a href="#最近在刷DFS，BFS的一些模板题，觉得这道题挺不错的，记录一下" class="headerlink" title="最近在刷DFS，BFS的一些模板题，觉得这道题挺不错的，记录一下"></a>最近在刷DFS，BFS的一些模板题，觉得这道题挺不错的，记录一下</h3><p>先附上BFS模板:</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void BFS(int s){</span><br><span class="line">    queue&lt;int&gt; q;</span><br><span class="line">    q.push(s);</span><br><span class="line">    while(!q.empty()){</span><br><span class="line">        取出队首元素;</span><br><span class="line">        访问队首元素;</span><br><span class="line">        队首元素出队;</span><br><span class="line">        将下一层未曾入队的元素入队,并设置为已经入队;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">void BFS(int s){
+    queue&lt;int&gt; q;
+    q.push(s);
+    while(!q.empty()){
+        取出队首元素;
+        访问队首元素;
+        队首元素出队;
+        将下一层未曾入队的元素入队,并设置为已经入队;
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>说说这题，基本也是按照这种模板，想到让入队的是下标，不是下标对应的值，也必须设置一个数组来判断下标当前是否已近入过队,在过程中遇到下标值为0返回true,未遇到则在搜索结束后返回false,CPP代码如下:</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution {</span><br><span class="line">public:</span><br><span class="line">    bool canReach(vector&lt;int&gt;&amp; arr, int start) {</span><br><span class="line">        vector&lt;int&gt; res(arr.size(),0);</span><br><span class="line">        queue&lt;int&gt; q;</span><br><span class="line">        q.push(start);</span><br><span class="line">        while(!q.empty()){</span><br><span class="line">            int now=q.front();</span><br><span class="line">            q.pop();</span><br><span class="line">            if(arr[now]==0) return true;    </span><br><span class="line">            if(now+arr[now]&lt;arr.size()&amp;&amp;res[now+arr[now]]==0){</span><br><span class="line">                q.push(now+arr[now]);</span><br><span class="line">                res[now+arr[now]]=1;</span><br><span class="line">            }</span><br><span class="line">            if(now-arr[now]&gt;=0&amp;&amp;res[now-arr[now]]==0){</span><br><span class="line">                q.push(now-arr[now]);</span><br><span class="line">                res[now-arr[now]]=1;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        return false;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">class Solution {
+public:
+    bool canReach(vector&lt;int&gt;&amp; arr, int start) {
+        vector&lt;int&gt; res(arr.size(),0);
+        queue&lt;int&gt; q;
+        q.push(start);
+        while(!q.empty()){
+            int now=q.front();
+            q.pop();
+            if(arr[now]==0) return true;    
+            if(now+arr[now]&lt;arr.size()&amp;&amp;res[now+arr[now]]==0){
+                q.push(now+arr[now]);
+                res[now+arr[now]]=1;
+            }
+            if(now-arr[now]&gt;=0&amp;&amp;res[now-arr[now]]==0){
+                q.push(now-arr[now]);
+                res[now-arr[now]]=1;
+            }
+        }
+        return false;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>题目不算难，重要的是思想，一开始没想好去瞟了眼答案才反应过来，所以记录一下，OVER</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
@@ -111,21 +147,21 @@
 </div>
 </body>
 
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="../cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 
 
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/typed.js"></script>
-<script src="/js/diaspora.js"></script>
+<script src="../lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="../js/plugin.js"></script>
+<script src="../js/typed.js"></script>
+<script src="../js/diaspora.js"></script>
 
 
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<link rel="stylesheet" href="../photoswipe/photoswipe.css">
+<link rel="stylesheet" href="../photoswipe/default-skin/default-skin.css">
 
 
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+<script src="../photoswipe/photoswipe.min.js"></script>
+<script src="../photoswipe/photoswipe-ui-default.min.js"></script>
 
 
 <!-- Root element of PhotoSwipe. Must have class pswp. -->
