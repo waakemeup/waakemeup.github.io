@@ -183,6 +183,7 @@ audio {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    overflow: hidden;
     mask-image: url("/img/logo.jpeg");
     mask-size: contain;
     transition: background-color 0.5s ease-in-out;
