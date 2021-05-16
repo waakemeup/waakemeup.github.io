@@ -873,7 +873,8 @@ body.mu .icon-logo {
     /* background: #fff; */
     background: url(https://random.52ecy.cn/randbg.php) no-repeat fixed;
     background-size: cover;
-    opacity: 0.65;
+    filter: blur(2.5px);
+    opacity: 0.85;
     position: relative;
     overflow-x: hidden;
 }
