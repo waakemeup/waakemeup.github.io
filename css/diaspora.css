@@ -31,7 +31,7 @@ body {
     position: relative;
     overflow-x: hidden;
     background: url(https://random.52ecy.cn/randbg.php) no-repeat fixed;
-    opacity: 0.4;
+    opacity: 0.85;
 }
 
 body:before {
