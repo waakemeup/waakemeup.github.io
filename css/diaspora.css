@@ -31,7 +31,7 @@ body {
     position: relative;
     overflow-x: hidden;
     background: url(https://random.52ecy.cn/randbg.php) no-repeat fixed;
-    background-size: contain;
+    background-size: cover;
     opacity: 0.85;
 }
 
@@ -872,7 +872,7 @@ body.mu .icon-logo {
 #single {
     /* background: #fff; */
     background: url(https://random.52ecy.cn/randbg.php) no-repeat fixed;
-    background-size: contain;
+    background-size: cover;
     opacity: 0.65;
     position: relative;
     overflow-x: hidden;
