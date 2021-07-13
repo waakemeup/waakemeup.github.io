@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>LeetCode 1306. 跳跃游戏 III BFS | waakeme_up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1306. 跳跃游戏 III这里有一个非负整数数组&amp;nbsp;arr，你最开始位于该数组的起始下标&amp;nbsp;start&amp;nbsp;处。当你位于下标&amp;nbsp;i&amp;nbsp;处时，你可以跳到&amp;nbsp;i + arr[i] 或者 i - arr[i]。 请你判断自己是否能够跳到对应元素值为 0 的 任一 下标处。 注意，不管是什么情况下，你都无法跳到数组之外。 来源：力扣（LeetCode）链接：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode 1306. 跳跃游戏 III BFS">
+<meta property="og:url" content="http://waakemeup.github.io/2021/01/27/leetcode-1306-tiao-yue-you-xi-iii-bfs/index.html">
+<meta property="og:site_name" content="waakeme_up">
+<meta property="og:description" content="1306. 跳跃游戏 III这里有一个非负整数数组&amp;nbsp;arr，你最开始位于该数组的起始下标&amp;nbsp;start&amp;nbsp;处。当你位于下标&amp;nbsp;i&amp;nbsp;处时，你可以跳到&amp;nbsp;i + arr[i] 或者 i - arr[i]。 请你判断自己是否能够跳到对应元素值为 0 的 任一 下标处。 注意，不管是什么情况下，你都无法跳到数组之外。 来源：力扣（LeetCode）链接：">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-27T14:18:45.000Z">
+<meta property="article:modified_time" content="2021-05-05T08:47:07.852Z">
+<meta property="article:author" content="waakemeup">
+<meta property="article:tag" content="BFS">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="waakeme_up" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/plugin/bganimation/bg.css">
+
+  
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Hexo 5.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars0.githubusercontent.com/u/20333903?v=3&amp;s=460">
+    <h2 class="author">waakemeup</h2>
+    <h3 class="description">这里是萌新一枚,请多多关照!</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>10</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>8</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-LeetCode-1306-跳跃游戏-III-BFS" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/01/27/leetcode-1306-tiao-yue-you-xi-iii-bfs/" class="article-date">
+  <time class="post-time" datetime="2021-01-27T14:18:45.000Z" itemprop="datePublished">
+    <span class="post-month">1月</span><br/>
+    <span class="post-day">27</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LeetCode 1306. 跳跃游戏 III BFS
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1306-跳跃游戏-III"><a href="#1306-跳跃游戏-III" class="headerlink" title="1306. 跳跃游戏 III"></a>1306. 跳跃游戏 III</h1><p>这里有一个非负整数数组&nbsp;arr，你最开始位于该数组的起始下标&nbsp;start&nbsp;处。当你位于下标&nbsp;i&nbsp;处时，你可以跳到&nbsp;i + arr[i] 或者 i - arr[i]。</p>
+<p>请你判断自己是否能够跳到对应元素值为 0 的 任一 下标处。</p>
+<p>注意，不管是什么情况下，你都无法跳到数组之外。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/jump-game-iii">https://leetcode-cn.com/problems/jump-game-iii</a></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><pre class="line-numbers language-none"><code class="language-none">输入：arr = [4,2,3,0,3,1,2], start = 5
+输出：true
+解释：
+到达值为 0 的下标 3 有以下可能方案： 
+下标 5 -&gt; 下标 4 -&gt; 下标 1 -&gt; 下标 3 
+下标 5 -&gt; 下标 6 -&gt; 下标 4 -&gt; 下标 1 -&gt; 下标 3 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="最近在刷DFS，BFS的一些模板题，觉得这道题挺不错的，记录一下"><a href="#最近在刷DFS，BFS的一些模板题，觉得这道题挺不错的，记录一下" class="headerlink" title="最近在刷DFS，BFS的一些模板题，觉得这道题挺不错的，记录一下"></a>最近在刷DFS，BFS的一些模板题，觉得这道题挺不错的，记录一下</h3><p>先附上BFS模板:</p>
+<pre class="line-numbers language-none"><code class="language-none">void BFS(int s){
+    queue&lt;int&gt; q;
+    q.push(s);
+    while(!q.empty()){
+        取出队首元素;
+        访问队首元素;
+        队首元素出队;
+        将下一层未曾入队的元素入队,并设置为已经入队;
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>说说这题，基本也是按照这种模板，想到让入队的是下标，不是下标对应的值，也必须设置一个数组来判断下标当前是否已近入过队,在过程中遇到下标值为0返回true,未遇到则在搜索结束后返回false,CPP代码如下:</p>
+<pre class="line-numbers language-none"><code class="language-none">class Solution {
+public:
+    bool canReach(vector&lt;int&gt;&amp; arr, int start) {
+        vector&lt;int&gt; res(arr.size(),0);
+        queue&lt;int&gt; q;
+        q.push(start);
+        while(!q.empty()){
+            int now=q.front();
+            q.pop();
+            if(arr[now]==0) return true;    
+            if(now+arr[now]&lt;arr.size()&amp;&amp;res[now+arr[now]]==0){
+                q.push(now+arr[now]);
+                res[now+arr[now]]=1;
+            }
+            if(now-arr[now]&gt;=0&amp;&amp;res[now-arr[now]]==0){
+                q.push(now-arr[now]);
+                res[now-arr[now]]=1;
+            }
+        }
+        return false;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>题目不算难，重要的是思想，一开始没想好去瞟了眼答案才反应过来，所以记录一下，OVER</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://waakemeup.github.io/2021/01/27/leetcode-1306-tiao-yue-you-xi-iii-bfs/" data-id="ckr1vp1dk000104nvewqye5rp" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/02/25/leetcode1314-ju-zhen-qu-yu-he/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          LeetCode1314. 矩阵区域和
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/01/25/ji-lu-di-yi-ci-shi-yong-markdown/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">记录第一次使用Markdown</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">waakeme_up</h1>
+    <h2 class="blog-subtitle">欢迎访问waakeme_up的博客</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars0.githubusercontent.com/u/20333903?v=3&amp;s=460">
+    <h2 class="author">waakemeup</h2>
+    <h3 class="description">这里是萌新一枚,请多多关照!</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>10</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>8</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/waakemeup" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2020 - 2021 waakemeup<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a target="_blank" rel="noopener" href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+  
+<script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+  
+<link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+
+  
+<script src="/plugin/galmenu/GalMenu.js"></script>
+
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

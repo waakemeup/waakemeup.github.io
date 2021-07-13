@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>waakeme_up</title>
+  
+  <subtitle>欢迎访问waakeme_up的博客</subtitle>
+  <link href="http://waakemeup.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://waakemeup.github.io/"/>
+  <updated>2021-05-09T15:39:46.668Z</updated>
+  <id>http://waakemeup.github.io/</id>
+  
+  <author>
+    <name>waakemeup</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我真的努力了吗?</title>
+    <link href="http://waakemeup.github.io/2021/05/09/wo-zhen-de-nu-li-liao-ma/"/>
+    <id>http://waakemeup.github.io/2021/05/09/wo-zhen-de-nu-li-liao-ma/</id>
+    <published>2021-05-09T14:37:43.000Z</published>
+    <updated>2021-05-09T15:39:46.668Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;我每天究竟在干什么&quot;&gt;&lt;a href=&quot;#我每天究竟在干什么&quot; class=&quot;headerlink&quot; title=&quot;我每天究竟在干什么?&quot;&gt;&lt;/a&gt;我每天究竟在干什么?&lt;/h2&gt;&lt;p&gt;我不知道。&lt;/p&gt;
+&lt;h2 id=&quot;我做的事有意义吗&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="life" scheme="http://waakemeup.github.io/categories/life/"/>
+    
+    <category term="thinking" scheme="http://waakemeup.github.io/categories/life/thinking/"/>
+    
+    
+    <category term="记录心情" scheme="http://waakemeup.github.io/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于JS数组的reduce方法</title>
+    <link href="http://waakemeup.github.io/2021/05/07/guan-yu-js-shu-zu-de-reduce-fang-fa/"/>
+    <id>http://waakemeup.github.io/2021/05/07/guan-yu-js-shu-zu-de-reduce-fang-fa/</id>
+    <published>2021-05-07T11:54:48.000Z</published>
+    <updated>2021-05-07T12:43:44.611Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;语法&quot;&gt;&lt;a href=&quot;#语法&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法&lt;/h2&gt;&lt;p&gt;&lt;code&gt;arr.reduce(callback(accumulator, currentValue[, index[,</summary>
+        
+      
+    
+    
+    
+    <category term="FrontEnd" scheme="http://waakemeup.github.io/categories/FrontEnd/"/>
+    
+    
+    <category term="JavaScript" scheme="http://waakemeup.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>总结五一假期</title>
+    <link href="http://waakemeup.github.io/2021/05/05/zong-jie-wu-yi-jia-qi/"/>
+    <id>http://waakemeup.github.io/2021/05/05/zong-jie-wu-yi-jia-qi/</id>
+    <published>2021-05-05T08:42:20.000Z</published>
+    <updated>2021-05-05T09:12:10.116Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;干了啥&quot;&gt;&lt;a href=&quot;#干了啥&quot; class=&quot;headerlink&quot; title=&quot;干了啥?&quot;&gt;&lt;/a&gt;干了啥?&lt;/h2&gt;&lt;p&gt;当然是&lt;del&gt;学习&lt;/del&gt;啦  其实就是在家躺尸&lt;/p&gt;
+&lt;h3 id=&quot;编程方面&quot;&gt;&lt;a href=&quot;#编程方面&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="life" scheme="http://waakemeup.github.io/categories/life/"/>
+    
+    
+    <category term="记录心情" scheme="http://waakemeup.github.io/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/"/>
+    
+    <category term="随便写写" scheme="http://waakemeup.github.io/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对未来的一丝焦虑</title>
+    <link href="http://waakemeup.github.io/2021/04/25/dui-wei-lai-de-yi-si-jiao-lu/"/>
+    <id>http://waakemeup.github.io/2021/04/25/dui-wei-lai-de-yi-si-jiao-lu/</id>
+    <published>2021-04-25T13:25:09.000Z</published>
+    <updated>2021-05-05T08:48:04.752Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;最近我在学习和生活过程中都有些焦虑&quot;&gt;&lt;a href=&quot;#最近我在学习和生活过程中都有些焦虑&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="life" scheme="http://waakemeup.github.io/categories/life/"/>
+    
+    <category term="thinking" scheme="http://waakemeup.github.io/categories/life/thinking/"/>
+    
+    
+    <category term="记录心情" scheme="http://waakemeup.github.io/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初识Docker</title>
+    <link href="http://waakemeup.github.io/2021/04/24/chu-shi-docker/"/>
+    <id>http://waakemeup.github.io/2021/04/24/chu-shi-docker/</id>
+    <published>2021-04-24T13:06:53.000Z</published>
+    <updated>2021-05-05T08:47:29.946Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Docker是什么&quot;&gt;&lt;a href=&quot;#Docker是什么&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="运维" scheme="http://waakemeup.github.io/categories/%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="Docker" scheme="http://waakemeup.github.io/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>后浪 ——致前端(转载)</title>
+    <link href="http://waakemeup.github.io/2021/04/21/hou-lang-zhi-qian-duan-zhuan-zai/"/>
+    <id>http://waakemeup.github.io/2021/04/21/hou-lang-zhi-qian-duan-zhuan-zai/</id>
+    <published>2021-04-21T10:12:07.000Z</published>
+    <updated>2021-05-05T08:48:18.984Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;那些口口声声，框架越来越难学的人，应该看着你们，像我一样。&lt;br&gt;我看着你们，满怀羡慕。人类调试了几十年兼容性的浏览器，所有的 bug、polyfill、crash 和 workaround，像是专门为你们准备的礼物。GitHub 繁荣、NPM 繁茂、W3C 繁华，现代</summary>
+        
+      
+    
+    
+    
+    <category term="转载" scheme="http://waakemeup.github.io/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+    <category term="转载" scheme="http://waakemeup.github.io/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>认清现实,活在当下</title>
+    <link href="http://waakemeup.github.io/2021/04/11/ren-qing-xian-shi-huo-zai-dang-xia/"/>
+    <id>http://waakemeup.github.io/2021/04/11/ren-qing-xian-shi-huo-zai-dang-xia/</id>
+    <published>2021-04-11T13:21:11.000Z</published>
+    <updated>2021-05-05T08:49:35.511Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;“成功和失败之间-应有第三种人生”&quot;&gt;&lt;a href=&quot;#“成功和失败之间-应有第三种人生”&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="life" scheme="http://waakemeup.github.io/categories/life/"/>
+    
+    <category term="thinking" scheme="http://waakemeup.github.io/categories/life/thinking/"/>
+    
+    
+    <category term="记录心情" scheme="http://waakemeup.github.io/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/"/>
+    
+    <category term="随便写写" scheme="http://waakemeup.github.io/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode1314. 矩阵区域和</title>
+    <link href="http://waakemeup.github.io/2021/02/25/leetcode1314-ju-zhen-qu-yu-he/"/>
+    <id>http://waakemeup.github.io/2021/02/25/leetcode1314-ju-zhen-qu-yu-he/</id>
+    <published>2021-02-25T07:50:29.000Z</published>
+    <updated>2021-05-05T08:47:11.355Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;LeetCode1314-矩阵区域和&quot;&gt;&lt;a href=&quot;#LeetCode1314-矩阵区域和&quot; class=&quot;headerlink&quot; title=&quot;LeetCode1314. 矩阵区域和&quot;&gt;&lt;/a&gt;LeetCode1314.</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithm" scheme="http://waakemeup.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="动态规划" scheme="http://waakemeup.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode 1306. 跳跃游戏 III BFS</title>
+    <link href="http://waakemeup.github.io/2021/01/27/leetcode-1306-tiao-yue-you-xi-iii-bfs/"/>
+    <id>http://waakemeup.github.io/2021/01/27/leetcode-1306-tiao-yue-you-xi-iii-bfs/</id>
+    <published>2021-01-27T14:18:45.000Z</published>
+    <updated>2021-05-05T08:47:07.852Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1306-跳跃游戏-III&quot;&gt;&lt;a href=&quot;#1306-跳跃游戏-III&quot; class=&quot;headerlink&quot; title=&quot;1306. 跳跃游戏 III&quot;&gt;&lt;/a&gt;1306. 跳跃游戏</summary>
+        
+      
+    
+    
+    
+    <category term="Algorithm" scheme="http://waakemeup.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="BFS" scheme="http://waakemeup.github.io/tags/BFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记录第一次使用Markdown</title>
+    <link href="http://waakemeup.github.io/2021/01/25/ji-lu-di-yi-ci-shi-yong-markdown/"/>
+    <id>http://waakemeup.github.io/2021/01/25/ji-lu-di-yi-ci-shi-yong-markdown/</id>
+    <published>2021-01-25T03:27:12.000Z</published>
+    <updated>2021-05-05T08:55:07.805Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;MarkDown使用&quot;&gt;&lt;a href=&quot;#MarkDown使用&quot; class=&quot;headerlink&quot; title=&quot;MarkDown使用&quot;&gt;&lt;/a&gt;MarkDown使用&lt;/h1&gt;&lt;h2 id=&quot;需要的编辑软件-任选其一即可&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Language" scheme="http://waakemeup.github.io/categories/Language/"/>
+    
+    
+    <category term="Markdown" scheme="http://waakemeup.github.io/tags/Markdown/"/>
+    
+  </entry>
+  
+</feed>
