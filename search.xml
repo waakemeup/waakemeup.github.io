@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>swift里的函数</title>
+      <link href="2021/07/14/swift-li-de-han-shu/"/>
+      <url>2021/07/14/swift-li-de-han-shu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Swift是一门什么语言"><a href="#Swift是一门什么语言" class="headerlink" title="Swift是一门什么语言?"></a>Swift是一门什么语言?</h2><p>简单来说,就是开源之敌Apple出品<br>能构建各种IOS应用<br>还有就是它是强类型的,和JavaScript啥的不一样</p><h2 id="它的函数长这样"><a href="#它的函数长这样" class="headerlink" title="它的函数长这样"></a>它的函数长这样</h2><pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">func mul(operand:Int,by:Int)-&gt;Int {    return operand*by}mul(operand:5,by:6)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>还可以加一些声明</p><pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">func mul(_ operand:Int,by otherOperand:Int)-&gt;Int {    return operand*otherOperand}mul(5,by:6)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>_让传参时可以不写operand</p><h2 id="没了，水完了"><a href="#没了，水完了" class="headerlink" title="没了，水完了"></a>没了，水完了</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> Language </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Swift </tag>
+            
+            <tag> IOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>我真的努力了吗?</title>
       <link href="2021/05/09/wo-zhen-de-nu-li-liao-ma/"/>
       <url>2021/05/09/wo-zhen-de-nu-li-liao-ma/</url>
