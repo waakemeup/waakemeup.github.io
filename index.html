@@ -48,9 +48,9 @@
     <h2 class="author">waakemeup</h2>
     <h3 class="description">我是waakemeup,你也可以叫我Ruby,它是一门编程语言,意为红宝石,我很喜欢所以当小名了,请多多关照!</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>11</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>12</strong><br>文章</div></a>
       <a href="/categories"><div><strong>7</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>10</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>11</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -75,6 +75,90 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-从零开始的React-1" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/07/18/cong-ling-kai-shi-de-react-1/" class="article-date">
+  <time class="post-time" datetime="2021-07-18T15:21:47.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br/>
+    <span class="post-day">18</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/18/cong-ling-kai-shi-de-react-1/">从零开始的React(1)</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/FrontEnd/">FrontEnd</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2021/07/18/cong-ling-kai-shi-de-react-1/" class="leancloud_visitors" data-flag-title="从零开始的React(1)">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="今天是我正式开始学习React的第一天-记录一下今天学到了什么"><a href="#今天是我正式开始学习React的第一天-记录一下今天学到了什么" class="headerlink" title="今天是我正式开始学习React的第一天,记录一下今天学到了什么"></a>今天是我正式开始学习React的第一天,记录一下今天学到了什么</h2><ol>
+<li><p>创建项目<br>创建一个React项目一般使用CRA这种脚手架,具体为<code>npx create-react-app ${项目名}</code>,当然现在有了vite,也可以用vite创建React项目,选择React即可。<br>我在创建项目的时候遇到一个问题就是我在全局安装了webpack,和CRA要求的webpack版本不一致,这时在根目录创建一个.env文件即可,里面写入<code>SKIP_PREFLIGHT_CHECK=true</code></p>
+</li>
+<li><p>JSX<br>JSX是JavaScript和HTML结合的一种写法,在其中class改为className,for改为htmlFor,其余都差不多,它的最外层只能被一个标签包裹,可以为<code>&lt;&gt;&lt;/&gt;</code>这样,这种写法被称为<code>Fragments</code>。<br>像p,h1,a这类标签必须在中间写内容,否则会warning。<br>还有就是props,我理解它是传递给组件的参数,可以对它采用ES6的解构赋值,还有就是它那啥只有一个{},而不是Vue中mustache那种必须<code>{{}}</code>,这个比较值得注意的是CSS in JS,比如<br><code>const headingStyle = {  color:'red',  backgroundColor:'black' }</code><br>然后在JSX中<code>style={headingStyle}</code>,像background-color,都会采用骆驼式命名法(Camel-Case),即它会变为backgroundColor。<br>还有就是props可以有默认值,用<code>${组件}.defaultProps = {title:'Task Tracker'}</code>,以及给props指定类型,此处有一个坑,需要先引入<code>import PropsTypes from 'prop-types'</code>然后比如<code>${组件}.propTypes = {title:PropsTypes.string.isRequired}</code>坑就是${组件}.后面propTypes第一个p是小写的,要注意(说简单吧也挺简单的  </p>
+</li>
+<li><p>定义组件的两种方式<br>编写JavaScript函数</p>
+<pre><code>function Welcome(props) {
+return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+}</code></pre>
+<p>采用ES6的class</p>
+<pre class="line-numbers language-none"><code class="language-none">class Welcome extends React.Component {
+  render() {
+    return &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;;
+  }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这是复制粘贴官网的别骂了…  </p>
+</li>
+<li><p>Hook ? (因为不熟悉所以少说)<br>今天接触的Hook有useLocation,useEffect,useState…但是,我还不是特别明白…<br>Hook的意思是钩子,好像就是一些JavaScript函数(说错了不要喷我),以use开头,也可以有自定义的,然后这应该是我后面学习的重点,现在还完全没理解。    </p>
+</li>
+<li><p>路由<br>React中没有Vue中router-view这种东西,首先需要<code>npm i react-router-dom</code>,在组件中引入<code>import {BrowserRouter as Router,Route} from 'react-router-dom'</code><br>as就是取个别名,应该都懂吧,然后Router(值指B开头那个)需要包裹整个被路由的组件,也就是把<router></router>放在最外层,然后里面有<route>,比如<code>&lt;/Route path='/about' component={About}&gt;</code>表示这个路由到/about这个页面,渲染的组件为About,若要渲染的东西是一堆JSX,可以写为<code>&lt;Route path='/' exact render={()=&gt;(你的JSX代码)}/&gt;</code>,然后如果你在路由的组件中写了a标签,会重载页面,可以使用Link,<code>import {Link} from 'react-router-dom'</code>,用法为<code>&lt;Link to='/'&gt;Go back&lt;/Link&gt;</code>,这样页面不会重载。  </route></p>
+<h3 id="聊聊别的"><a href="#聊聊别的" class="headerlink" title="聊聊别的"></a>聊聊别的</h3><p>最近我买了台新电脑Macbook Air M1 16G,我感觉它非常适合我写前端之类的,太香了,虽然Ubuntu也很棒但还是Mac更稳定一点软件生态也更好,我之前用Ubuntu一直找不到一个翻墙的办法…我是电脑小白<br>我发现我的VSCode写React没有JSX语法高亮,不是很好看,好烦啊<br>我还去知乎提了个问 <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/472926379">就是这个问题</a><br><img src="https://pic4.zhimg.com/v2-ca6f88a6db9a0e8e90a54b859799a4fb_b.png" alt="JSX不高亮图片"><br>哎,这样不好看啊,谁来告诉我怎么弄,该装的插件都装了</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://waakemeup.github.io/2021/07/18/cong-ling-kai-shi-de-react-1/" data-id="ckr9g2m89000vdgnv1wky3wma" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-swift里的函数" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -134,7 +218,7 @@ mul(5,by:6)<span aria-hidden="true" class="line-numbers-rows"><span></span><span
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/07/14/swift-li-de-han-shu/" data-id="ckr9cgeag000fi0nva625h1tp" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/07/14/swift-li-de-han-shu/" data-id="ckr9g2m7v0007dgnv7fjofkmj" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS/" rel="tag">IOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/" rel="tag">Swift</a></li></ul>
@@ -201,7 +285,7 @@ mul(5,by:6)<span aria-hidden="true" class="line-numbers-rows"><span></span><span
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/05/09/wo-zhen-de-nu-li-liao-ma/" data-id="ckr9cgeam000oi0nv3f5u3gm7" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/05/09/wo-zhen-de-nu-li-liao-ma/" data-id="ckr9g2m85000mdgnvheuffoda" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/" rel="tag">记录心情</a></li></ul>
@@ -362,7 +446,7 @@ RunPromiseInSequence(Parr, 2)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/05/07/guan-yu-js-shu-zu-de-reduce-fang-fa/" data-id="ckr9cgeah000gi0nvhjq3cy7i" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/05/07/guan-yu-js-shu-zu-de-reduce-fang-fa/" data-id="ckr9g2m7w0009dgnvduin05u0" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
@@ -428,7 +512,7 @@ RunPromiseInSequence(Parr, 2)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/05/05/zong-jie-wu-yi-jia-qi/" data-id="ckr9cgeak000li0nvdf69ddg2" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/05/05/zong-jie-wu-yi-jia-qi/" data-id="ckr9g2m84000kdgnv224t9hvs" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/" rel="tag">记录心情</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/" rel="tag">随便写写</a></li></ul>
@@ -519,7 +603,7 @@ RunPromiseInSequence(Parr, 2)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/04/25/dui-wei-lai-de-yi-si-jiao-lu/" data-id="ckr9cgeaj000ki0nv2np62sdh" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/04/25/dui-wei-lai-de-yi-si-jiao-lu/" data-id="ckr9g2m82000gdgnvcpb31eln" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/" rel="tag">记录心情</a></li></ul>
@@ -599,7 +683,7 @@ RunPromiseInSequence(Parr, 2)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/04/24/chu-shi-docker/" data-id="ckr9cgeap000ti0nv4vazg54e" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/04/24/chu-shi-docker/" data-id="ckr9g2m80000fdgnvhurmdjy8" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
@@ -661,7 +745,7 @@ RunPromiseInSequence(Parr, 2)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/04/21/hou-lang-zhi-qian-duan-zhuan-zai/" data-id="ckr9cgeai000ji0nvfqjse5kd" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/04/21/hou-lang-zhi-qian-duan-zhuan-zai/" data-id="ckr9g2m7x000bdgnv0aqiejyc" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
@@ -810,7 +894,7 @@ You are very much ON TIME, and in your TIME ZONE.<span aria-hidden="true" class=
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/04/11/ren-qing-xian-shi-huo-zai-dang-xia/" data-id="ckr9cgean000pi0nvb2hmetp6" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/04/11/ren-qing-xian-shi-huo-zai-dang-xia/" data-id="ckr9g2m87000qdgnv5tr8bvoz" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/" rel="tag">记录心情</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/" rel="tag">随便写写</a></li></ul>
@@ -904,7 +988,7 @@ public:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/02/25/leetcode1314-ju-zhen-qu-yu-he/" data-id="ckr9cgea20001i0nv1mjfe4g3" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/02/25/leetcode1314-ju-zhen-qu-yu-he/" data-id="ckr9g2m7g0001dgnvca3adag8" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li></ul>
@@ -1010,7 +1094,7 @@ public:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/01/27/leetcode-1306-tiao-yue-you-xi-iii-bfs/" data-id="ckr9cgea60003i0nv638yfqri" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/01/27/leetcode-1306-tiao-yue-you-xi-iii-bfs/" data-id="ckr9g2m7n0003dgnvfpo2ejym" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li></ul>
@@ -1098,7 +1182,7 @@ public:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/01/25/ji-lu-di-yi-ci-shi-yong-markdown/" data-id="ckr9cgeaq000vi0nvb5vg8luh" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/01/25/ji-lu-di-yi-ci-shi-yong-markdown/" data-id="ckr9g2m88000rdgnv41jz2uwv" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
@@ -1152,9 +1236,9 @@ public:
     <h2 class="author">waakemeup</h2>
     <h3 class="description">我是waakemeup,你也可以叫我Ruby,它是一门编程语言,意为红宝石,我很喜欢所以当小名了,请多多关照!</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>11</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>12</strong><br>文章</div></a>
       <a href="/categories"><div><strong>7</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>10</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>11</strong><br>标签</div></a>
     </div>
 
 
@@ -1163,6 +1247,10 @@ public:
       
         <a class="hvr-bounce-in" href="http://github.com/waakemeup" target="_blank" title="Github">
           Github
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://qm.qq.com/cgi-bin/qm/qr?k=2UhEcJLAEGrxMP1tDSxKzbWCMLpEFGqb&amp;noverify=0" target="_blank" title="QQ">
+          QQ
         </a>
       
     </div>

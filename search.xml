@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>从零开始的React(1)</title>
+      <link href="2021/07/18/cong-ling-kai-shi-de-react-1/"/>
+      <url>2021/07/18/cong-ling-kai-shi-de-react-1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="今天是我正式开始学习React的第一天-记录一下今天学到了什么"><a href="#今天是我正式开始学习React的第一天-记录一下今天学到了什么" class="headerlink" title="今天是我正式开始学习React的第一天,记录一下今天学到了什么"></a>今天是我正式开始学习React的第一天,记录一下今天学到了什么</h2><ol><li><p>创建项目<br>创建一个React项目一般使用CRA这种脚手架,具体为<code>npx create-react-app ${项目名}</code>,当然现在有了vite,也可以用vite创建React项目,选择React即可。<br>我在创建项目的时候遇到一个问题就是我在全局安装了webpack,和CRA要求的webpack版本不一致,这时在根目录创建一个.env文件即可,里面写入<code>SKIP_PREFLIGHT_CHECK=true</code></p></li><li><p>JSX<br>JSX是JavaScript和HTML结合的一种写法,在其中class改为className,for改为htmlFor,其余都差不多,它的最外层只能被一个标签包裹,可以为<code>&lt;&gt;&lt;/&gt;</code>这样,这种写法被称为<code>Fragments</code>。<br>像p,h1,a这类标签必须在中间写内容,否则会warning。<br>还有就是props,我理解它是传递给组件的参数,可以对它采用ES6的解构赋值,还有就是它那啥只有一个{},而不是Vue中mustache那种必须<code>{{}}</code>,这个比较值得注意的是CSS in JS,比如<br><code>const headingStyle = {  color:'red',  backgroundColor:'black' }</code><br>然后在JSX中<code>style={headingStyle}</code>,像background-color,都会采用骆驼式命名法(Camel-Case),即它会变为backgroundColor。<br>还有就是props可以有默认值,用<code>${组件}.defaultProps = {title:'Task Tracker'}</code>,以及给props指定类型,此处有一个坑,需要先引入<code>import PropsTypes from 'prop-types'</code>然后比如<code>${组件}.propTypes = {title:PropsTypes.string.isRequired}</code>坑就是${组件}.后面propTypes第一个p是小写的,要注意(说简单吧也挺简单的  </p></li><li><p>定义组件的两种方式<br>编写JavaScript函数</p><pre><code>function Welcome(props) {return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;}</code></pre><p>采用ES6的class</p><pre class="line-numbers language-none"><code class="language-none">class Welcome extends React.Component {  render() {    return &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;;  }}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>这是复制粘贴官网的别骂了…  </p></li><li><p>Hook ? (因为不熟悉所以少说)<br>今天接触的Hook有useLocation,useEffect,useState…但是,我还不是特别明白…<br>Hook的意思是钩子,好像就是一些JavaScript函数(说错了不要喷我),以use开头,也可以有自定义的,然后这应该是我后面学习的重点,现在还完全没理解。    </p></li><li><p>路由<br>React中没有Vue中router-view这种东西,首先需要<code>npm i react-router-dom</code>,在组件中引入<code>import {BrowserRouter as Router,Route} from 'react-router-dom'</code><br>as就是取个别名,应该都懂吧,然后Router(值指B开头那个)需要包裹整个被路由的组件,也就是把<router></router>放在最外层,然后里面有<route>,比如<code>&lt;/Route path='/about' component={About}&gt;</code>表示这个路由到/about这个页面,渲染的组件为About,若要渲染的东西是一堆JSX,可以写为<code>&lt;Route path='/' exact render={()=&gt;(你的JSX代码)}/&gt;</code>,然后如果你在路由的组件中写了a标签,会重载页面,可以使用Link,<code>import {Link} from 'react-router-dom'</code>,用法为<code>&lt;Link to='/'&gt;Go back&lt;/Link&gt;</code>,这样页面不会重载。  </route></p><h3 id="聊聊别的"><a href="#聊聊别的" class="headerlink" title="聊聊别的"></a>聊聊别的</h3><p>最近我买了台新电脑Macbook Air M1 16G,我感觉它非常适合我写前端之类的,太香了,虽然Ubuntu也很棒但还是Mac更稳定一点软件生态也更好,我之前用Ubuntu一直找不到一个翻墙的办法…我是电脑小白<br>我发现我的VSCode写React没有JSX语法高亮,不是很好看,好烦啊<br>我还去知乎提了个问 <a href="https://www.zhihu.com/question/472926379">就是这个问题</a><br><img src="https://pic4.zhimg.com/v2-ca6f88a6db9a0e8e90a54b859799a4fb_b.png" alt="JSX不高亮图片"><br>哎,这样不好看啊,谁来告诉我怎么弄,该装的插件都装了</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> FrontEnd </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>swift里的函数</title>
       <link href="2021/07/14/swift-li-de-han-shu/"/>
       <url>2021/07/14/swift-li-de-han-shu/</url>
