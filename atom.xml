@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>waakeme_up</title>
+  <title>waakeme_upの树洞</title>
   
-  <subtitle>欢迎访问waakeme_up的博客</subtitle>
+  <subtitle>陌生人,你好!</subtitle>
   <link href="http://waakemeup.github.io/atom.xml" rel="self"/>
   
   <link href="http://waakemeup.github.io/"/>

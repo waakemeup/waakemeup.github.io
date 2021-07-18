@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>LeetCode 1306. 跳跃游戏 III BFS | waakeme_up</title>
+  <title>LeetCode 1306. 跳跃游戏 III BFS | waakeme_upの树洞</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1306. 跳跃游戏 III这里有一个非负整数数组&amp;nbsp;arr，你最开始位于该数组的起始下标&amp;nbsp;start&amp;nbsp;处。当你位于下标&amp;nbsp;i&amp;nbsp;处时，你可以跳到&amp;nbsp;i + arr[i] 或者 i - arr[i]。 请你判断自己是否能够跳到对应元素值为 0 的 任一 下标处。 注意，不管是什么情况下，你都无法跳到数组之外。 来源：力扣（LeetCode）链接：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 1306. 跳跃游戏 III BFS">
 <meta property="og:url" content="http://waakemeup.github.io/2021/01/27/leetcode-1306-tiao-yue-you-xi-iii-bfs/index.html">
-<meta property="og:site_name" content="waakeme_up">
+<meta property="og:site_name" content="waakeme_upの树洞">
 <meta property="og:description" content="1306. 跳跃游戏 III这里有一个非负整数数组&amp;nbsp;arr，你最开始位于该数组的起始下标&amp;nbsp;start&amp;nbsp;处。当你位于下标&amp;nbsp;i&amp;nbsp;处时，你可以跳到&amp;nbsp;i + arr[i] 或者 i - arr[i]。 请你判断自己是否能够跳到对应元素值为 0 的 任一 下标处。 注意，不管是什么情况下，你都无法跳到数组之外。 来源：力扣（LeetCode）链接：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-27T14:18:45.000Z">
@@ -17,11 +17,12 @@
 <meta property="article:author" content="waakemeup">
 <meta property="article:tag" content="BFS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@https:&#x2F;&#x2F;twitter.com&#x2F;Nasiga22">
   
-    <link rel="alternate" href="/atom.xml" title="waakeme_up" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="waakeme_upの树洞" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="https://pic4.zhimg.com/v2-32fe9e19d2e23f123f701a9fb53a46b3_b.jpg">
   
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
@@ -44,9 +45,9 @@
         <div class="widget-wrap mobile-header">
   <h3 class="widget-title"></h3>
   <div class="widget">
-    <img class="avatar" src="https://avatars0.githubusercontent.com/u/20333903?v=3&amp;s=460">
+    <img class="avatar" src="https://pic2.zhimg.com/v2-de877e57b1143ea13b302654ac3122e5_b.jpg">
     <h2 class="author">waakemeup</h2>
-    <h3 class="description">这里是萌新一枚,请多多关照!</h3>
+    <h3 class="description">我是waakemeup,你也可以叫我Ruby,它是一门编程语言,意为红宝石,我很喜欢所以当小名了,请多多关照!</h3>
     <div class="count-box">
       <a href="/archives"><div><strong>11</strong><br>文章</div></a>
       <a href="/categories"><div><strong>7</strong><br>分类</div></a>
@@ -103,6 +104,13 @@
 
           
               
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2021/01/27/leetcode-1306-tiao-yue-you-xi-iii-bfs/" class="leancloud_visitors" data-flag-title="LeetCode 1306. 跳跃游戏 III BFS">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
 
           
         </div>
@@ -159,7 +167,7 @@ public:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/01/27/leetcode-1306-tiao-yue-you-xi-iii-bfs/" data-id="ckr2pc71e0007nonvaqeb7xm4" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/01/27/leetcode-1306-tiao-yue-you-xi-iii-bfs/" data-id="ckr9cgea60003i0nv638yfqri" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li></ul>
@@ -199,8 +207,8 @@ public:
     <div class="widget-wrap">
   <h3 class="widget-title"></h3>
   <div class="widget">
-    <h1 class="blog-title">waakeme_up</h1>
-    <h2 class="blog-subtitle">欢迎访问waakeme_up的博客</h2>
+    <h1 class="blog-title">waakeme_upの树洞</h1>
+    <h2 class="blog-subtitle">陌生人,你好!</h2>
     <ul class="blog-link">
      
           <a href="/" title="Home">
@@ -227,9 +235,9 @@ public:
     <div class="widget-wrap">
   <h3 class="widget-title"></h3>
   <div class="widget">
-    <img class="avatar" src="https://avatars0.githubusercontent.com/u/20333903?v=3&amp;s=460">
+    <img class="avatar" src="https://pic2.zhimg.com/v2-de877e57b1143ea13b302654ac3122e5_b.jpg">
     <h2 class="author">waakemeup</h2>
-    <h3 class="description">这里是萌新一枚,请多多关照!</h3>
+    <h3 class="description">我是waakemeup,你也可以叫我Ruby,它是一门编程语言,意为红宝石,我很喜欢所以当小名了,请多多关照!</h3>
     <div class="count-box">
       <a href="/archives"><div><strong>11</strong><br>文章</div></a>
       <a href="/categories"><div><strong>7</strong><br>分类</div></a>
@@ -268,6 +276,8 @@ public:
       &copy;2020 - 2021 waakemeup<br>
       由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
       主题-<a target="_blank" rel="noopener" href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+        |<script src="http://s11.cnzz.com/z_stat.php?id=123456789&web_id=123456789" language="JavaScript"></script>
       
     </div>
     
@@ -310,13 +320,13 @@ new WOW().init();
           
             <a href="/archives" title="" class="menuItem">归档</a>
           
-            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+            <a href="/about" title="" class="menuItem">关于</a>
           
             <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
           
         </div>
         
-          <audio id="audio" src="#"></audio>
+          <audio id="audio" src="plugin/galmenu/wulusai.mp3"></audio>
         
       </div> 
 </div>
@@ -347,6 +357,115 @@ new WOW().init();
 </section>
 
 <script src="/js/script.js"></script>
+
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("OAJGe78Syvowa91nnxGXJKos-gzGzoHsz", "z2vBhnttLAuM6xuKyxXIJu06");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
 
 
 
