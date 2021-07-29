@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>从零开始的React(2)</title>
+      <link href="2021/07/29/cong-ling-kai-shi-de-react-2/"/>
+      <url>2021/07/29/cong-ling-kai-shi-de-react-2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="本文主要介绍Redux"><a href="#本文主要介绍Redux" class="headerlink" title="本文主要介绍Redux"></a>本文主要介绍Redux</h2><h3 id="Redux是什么"><a href="#Redux是什么" class="headerlink" title="Redux是什么?"></a>Redux是什么?</h3><p>“Redux 是 JavaScript 状态容器，提供可预测化的状态管理”。</p><h3 id="简单说一下大概是怎样的"><a href="#简单说一下大概是怎样的" class="headerlink" title="简单说一下大概是怎样的"></a>简单说一下大概是怎样的</h3><ol><li>基本原则  </li></ol><ul><li>唯一数据源</li><li>保持状态只读</li><li>数据改变只能通过纯函数完成</li></ul><ol start="2"><li>大概流程<br>整个应用只能有一个store,所有组件的数据源就是这个store上的状态,所谓状态只读,就是说不能去直接修改,要改变store的状态,必须要通过派发一个action对象来完成,纯函数说的是Reducer,action实际上调用了reducer方法,action能告诉reducer下一步的动作(Type)是什么<h3 id="通过一个计数器案例来简单入门Redux"><a href="#通过一个计数器案例来简单入门Redux" class="headerlink" title="通过一个计数器案例来简单入门Redux"></a>通过一个计数器案例来简单入门Redux</h3>首先在store目录下创建一个store:<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import { createStore } from 'redux'import reducer from './reducers'export default createStore(reducer)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>新建store要传入一个reducer,在store目录下新建一个reducer<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import T from '../action/types'import { combineReducers } from 'redux'const initState = {    num: 1}const change = (state = initState, action) =&gt; {    const { type, num } = action    console.log(num)    switch (type) {        case T.ADD:            return {                num: state.num + num            }        case T.REDUCE:            return {                num: state.num - num            }        default:            return state    }}export default combineReducers({    change})<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>state记录数据的状态,action则用于改变它<br>接下来创建action目录,创建一个actions文件,用于调用reducer<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import T from './types'export function add(num) {    return {        type: T.ADD,        num    }}export function reduce(num) {    return {        type: T.REDUCE,        num    }}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>还需要一个types文件,通过Object.freeze使得它只读<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">export const types = Object.freeze({    ADD: 'ADD',    REDUCE: 'REDUCE'})export default types<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>将根目录的app.js改为<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import React, { Component } from 'react';import { connect } from 'react-redux';import { add, reduce } from './action/actions';// import styles from './style.module.css';class Demo extends Component {  render() {    // console.log(this.props);    return (      &lt;div&gt;        &lt;button onClick={() =&gt; this.props.add(2)}&gt;+&lt;/button&gt;        &lt;span style={{ color: '#000' }}&gt;{this.props.num}&lt;/span&gt;        &lt;button onClick={() =&gt; this.props.reduce(3)}&gt;-&lt;/button&gt;      &lt;/div&gt;    );  }}const mapStateToProps = state =&gt; {  return {    num: state.change.num  };};const mapDispatchToProps = dispatch =&gt; {  return {    add: num =&gt; dispatch(add(num)),    reduce: num =&gt; dispatch(reduce(num))  };};export default connect(mapStateToProps, mapDispatchToProps)(Demo);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>最后在根目录的index.js文件中引入store和react-redux这个库提供的Provider组件,在Provider中提供store,使得它包含的所有子组件都能访问store<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import React from 'react';import ReactDOM from 'react-dom';// import './index.css';import App from './App';import {Provider} from 'react-redux'import store from './store'ReactDOM.render(  &lt;Provider store={store}&gt;    &lt;App /&gt;  &lt;/Provider&gt;  ,  document.getElementById('root'));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="然后这个demo就完成啦"><a href="#然后这个demo就完成啦" class="headerlink" title="然后这个demo就完成啦!"></a>然后这个demo就完成啦!</h3>借鉴了我崇拜的人写的博客,自己也在油管上看了些入门教程(感觉英语都听得懂我好像有点飘?)还有《深入浅出React和Redux》这本书,理解能力有点差,包括Vuex我也一直没认真想过,只是简单看了下,得改变一下自己思维上经常偷懒这个坏习惯,要多想,想明白才行。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> FrontEnd </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+            <tag> Redux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>从零开始的React(1)</title>
       <link href="2021/07/18/cong-ling-kai-shi-de-react-1/"/>
       <url>2021/07/18/cong-ling-kai-shi-de-react-1/</url>

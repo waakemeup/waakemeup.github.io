@@ -48,9 +48,9 @@
     <h2 class="author">waakemeup</h2>
     <h3 class="description">我是waakemeup,你也可以叫我Ruby,它是一门编程语言,意为红宝石,我很喜欢所以当小名了,请多多关照!</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>12</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>13</strong><br>文章</div></a>
       <a href="/categories"><div><strong>7</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>11</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>12</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -75,6 +75,175 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-从零开始的React-2" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/07/29/cong-ling-kai-shi-de-react-2/" class="article-date">
+  <time class="post-time" datetime="2021-07-29T08:32:51.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br/>
+    <span class="post-day">29</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/29/cong-ling-kai-shi-de-react-2/">从零开始的React(2)</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/FrontEnd/">FrontEnd</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2021/07/29/cong-ling-kai-shi-de-react-2/" class="leancloud_visitors" data-flag-title="从零开始的React(2)">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="本文主要介绍Redux"><a href="#本文主要介绍Redux" class="headerlink" title="本文主要介绍Redux"></a>本文主要介绍Redux</h2><h3 id="Redux是什么"><a href="#Redux是什么" class="headerlink" title="Redux是什么?"></a>Redux是什么?</h3><p>“Redux 是 JavaScript 状态容器，提供可预测化的状态管理”。</p>
+<h3 id="简单说一下大概是怎样的"><a href="#简单说一下大概是怎样的" class="headerlink" title="简单说一下大概是怎样的"></a>简单说一下大概是怎样的</h3><ol>
+<li>基本原则  </li>
+</ol>
+<ul>
+<li>唯一数据源</li>
+<li>保持状态只读</li>
+<li>数据改变只能通过纯函数完成</li>
+</ul>
+<ol start="2">
+<li>大概流程<br>整个应用只能有一个store,所有组件的数据源就是这个store上的状态,所谓状态只读,就是说不能去直接修改,要改变store的状态,必须要通过派发一个action对象来完成,纯函数说的是Reducer,action实际上调用了reducer方法,action能告诉reducer下一步的动作(Type)是什么<h3 id="通过一个计数器案例来简单入门Redux"><a href="#通过一个计数器案例来简单入门Redux" class="headerlink" title="通过一个计数器案例来简单入门Redux"></a>通过一个计数器案例来简单入门Redux</h3>首先在store目录下创建一个store:<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import { createStore } from 'redux'
+
+import reducer from './reducers'
+export default createStore(reducer)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+新建store要传入一个reducer,在store目录下新建一个reducer<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import T from '../action/types'
+import { combineReducers } from 'redux'
+
+const initState = {
+    num: 1
+}
+
+const change = (state = initState, action) =&gt; {
+    const { type, num } = action
+    console.log(num)
+    switch (type) {
+        case T.ADD:
+            return {
+                num: state.num + num
+            }
+        case T.REDUCE:
+            return {
+                num: state.num - num
+            }
+        default:
+            return state
+    }
+}
+
+export default combineReducers({
+    change
+})<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+state记录数据的状态,action则用于改变它<br>接下来创建action目录,创建一个actions文件,用于调用reducer<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import T from './types'
+
+export function add(num) {
+    return {
+        type: T.ADD,
+        num
+    }
+}
+
+export function reduce(num) {
+    return {
+        type: T.REDUCE,
+        num
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+还需要一个types文件,通过Object.freeze使得它只读<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">export const types = Object.freeze({
+    ADD: 'ADD',
+    REDUCE: 'REDUCE'
+})
+
+export default types<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+将根目录的app.js改为<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { add, reduce } from './action/actions';
+// import styles from './style.module.css';
+class Demo extends Component {
+  render() {
+    // console.log(this.props);
+
+    return (
+      &lt;div&gt;
+        &lt;button onClick={() =&gt; this.props.add(2)}&gt;+&lt;/button&gt;
+        &lt;span style={{ color: '#000' }}&gt;{this.props.num}&lt;/span&gt;
+        &lt;button onClick={() =&gt; this.props.reduce(3)}&gt;-&lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+const mapStateToProps = state =&gt; {
+  return {
+    num: state.change.num
+  };
+};
+const mapDispatchToProps = dispatch =&gt; {
+  return {
+    add: num =&gt; dispatch(add(num)),
+    reduce: num =&gt; dispatch(reduce(num))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Demo);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+最后在根目录的index.js文件中引入store和react-redux这个库提供的Provider组件,在Provider中提供store,使得它包含的所有子组件都能访问store<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import React from 'react';
+import ReactDOM from 'react-dom';
+// import './index.css';
+import App from './App';
+import {Provider} from 'react-redux'
+import store from './store'
+
+ReactDOM.render(
+  &lt;Provider store={store}&gt;
+    &lt;App /&gt;
+  &lt;/Provider&gt;
+  ,
+  document.getElementById('root')
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="然后这个demo就完成啦"><a href="#然后这个demo就完成啦" class="headerlink" title="然后这个demo就完成啦!"></a>然后这个demo就完成啦!</h3>借鉴了我崇拜的人写的博客,自己也在油管上看了些入门教程(感觉英语都听得懂我好像有点飘?)还有《深入浅出React和Redux》这本书,理解能力有点差,包括Vuex我也一直没认真想过,只是简单看了下,得改变一下自己思维上经常偷懒这个坏习惯,要多想,想明白才行。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://waakemeup.github.io/2021/07/29/cong-ling-kai-shi-de-react-2/" data-id="ckros10cw000bponvd3p14qra" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-从零开始的React-1" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -146,7 +315,7 @@ return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/07/18/cong-ling-kai-shi-de-react-1/" data-id="ckr9g7qpq0009xgnvb6vfdvzp" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/07/18/cong-ling-kai-shi-de-react-1/" data-id="ckros10cr0007ponv80phe2ni" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
@@ -218,7 +387,7 @@ mul(5,by:6)<span aria-hidden="true" class="line-numbers-rows"><span></span><span
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/07/14/swift-li-de-han-shu/" data-id="ckr9g7qps000bxgnv7ifvbcqf" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/07/14/swift-li-de-han-shu/" data-id="ckros10cu0009ponv28491ksp" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS/" rel="tag">IOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/" rel="tag">Swift</a></li></ul>
@@ -285,7 +454,7 @@ mul(5,by:6)<span aria-hidden="true" class="line-numbers-rows"><span></span><span
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/05/09/wo-zhen-de-nu-li-liao-ma/" data-id="ckr9g7qpz000mxgnv8w0g8nmx" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/05/09/wo-zhen-de-nu-li-liao-ma/" data-id="ckros10e7000wponv72pt3xzd" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/" rel="tag">记录心情</a></li></ul>
@@ -446,7 +615,7 @@ RunPromiseInSequence(Parr, 2)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/05/07/guan-yu-js-shu-zu-de-reduce-fang-fa/" data-id="ckr9g7qpp0007xgnvcwjvbw72" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/05/07/guan-yu-js-shu-zu-de-reduce-fang-fa/" data-id="ckros10dk000fponvapfkau5w" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
@@ -512,7 +681,7 @@ RunPromiseInSequence(Parr, 2)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/05/05/zong-jie-wu-yi-jia-qi/" data-id="ckr9g7qq1000qxgnv1y8k2hu6" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/05/05/zong-jie-wu-yi-jia-qi/" data-id="ckros10e0000qponv3t2bdic2" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/" rel="tag">记录心情</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/" rel="tag">随便写写</a></li></ul>
@@ -603,7 +772,7 @@ RunPromiseInSequence(Parr, 2)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/04/25/dui-wei-lai-de-yi-si-jiao-lu/" data-id="ckr9g7qpu000fxgnvazvahsqe" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/04/25/dui-wei-lai-de-yi-si-jiao-lu/" data-id="ckros10dw000mponvemmh1sv6" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/" rel="tag">记录心情</a></li></ul>
@@ -683,7 +852,7 @@ RunPromiseInSequence(Parr, 2)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/04/24/chu-shi-docker/" data-id="ckr9g7qpv000gxgnvddh779ax" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/04/24/chu-shi-docker/" data-id="ckros10dm000gponvh6453unp" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
@@ -745,7 +914,7 @@ RunPromiseInSequence(Parr, 2)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/04/21/hou-lang-zhi-qian-duan-zhuan-zai/" data-id="ckr9g7qpx000kxgnv44vid5r2" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/04/21/hou-lang-zhi-qian-duan-zhuan-zai/" data-id="ckros10dt000kponv7jqt4jya" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
@@ -894,7 +1063,7 @@ You are very much ON TIME, and in your TIME ZONE.<span aria-hidden="true" class=
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/04/11/ren-qing-xian-shi-huo-zai-dang-xia/" data-id="ckr9g7qqi001rxgnv3skxab1d" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/04/11/ren-qing-xian-shi-huo-zai-dang-xia/" data-id="ckros10e3000sponvbckx4doi" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95%E5%BF%83%E6%83%85/" rel="tag">记录心情</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/" rel="tag">随便写写</a></li></ul>
@@ -988,7 +1157,7 @@ public:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/02/25/leetcode1314-ju-zhen-qu-yu-he/" data-id="ckr9g7qpl0003xgnvb5ok49hi" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/02/25/leetcode1314-ju-zhen-qu-yu-he/" data-id="ckros10cg0003ponv78p8ax7b" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li></ul>
@@ -1094,7 +1263,7 @@ public:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/01/27/leetcode-1306-tiao-yue-you-xi-iii-bfs/" data-id="ckr9g7qpf0001xgnveynddb1y" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/01/27/leetcode-1306-tiao-yue-you-xi-iii-bfs/" data-id="ckros10c30001ponv9ze7gv9s" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li></ul>
@@ -1108,95 +1277,11 @@ public:
 
 
   
-    <article id="post-记录第一次使用MarkDown" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/01/25/ji-lu-di-yi-ci-shi-yong-markdown/" class="article-date">
-  <time class="post-time" datetime="2021-01-25T03:27:12.000Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br/>
-    <span class="post-day">25</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/25/ji-lu-di-yi-ci-shi-yong-markdown/">记录第一次使用Markdown</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Language/">Language</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2021/01/25/ji-lu-di-yi-ci-shi-yong-markdown/" class="leancloud_visitors" data-flag-title="记录第一次使用Markdown">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
 
 
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="MarkDown使用"><a href="#MarkDown使用" class="headerlink" title="MarkDown使用"></a>MarkDown使用</h1><h2 id="需要的编辑软件-任选其一即可"><a href="#需要的编辑软件-任选其一即可" class="headerlink" title="需要的编辑软件(任选其一即可)"></a>需要的编辑软件(任选其一即可)</h2><ul>
-<li>Typora<br>页面简约，建议在国内网站下载<br><a target="_blank" rel="noopener" href="https://pc.qq.com/search.html#!keyword=typora">Typora下载链接</a></li>
-<li>VSCode<br>功能丰富，轻量级</li>
-<li>Vim<br>上古神器，没使用过但听说用这个的都是大神，所以应该也是不错的<h2 id="大家我都喜欢哦-jpg"><a href="#大家我都喜欢哦-jpg" class="headerlink" title="大家我都喜欢哦.jpg"></a>大家我都喜欢哦.jpg</h2><img src="https://i0.hdslb.com/bfs/article/f0b3520c28f2464be1b184e0043b8d032904d412.jpg@1312w_1396h.webp" alt="图片上传失败..."><h2 id="咳咳，步入正题，MarkDown的使用"><a href="#咳咳，步入正题，MarkDown的使用" class="headerlink" title="咳咳，步入正题，MarkDown的使用"></a>咳咳，步入正题，MarkDown的使用</h2>因为我自己也是纯小白，在建这个个人博客前也完全没接触过Markdown这个东西，但打算写一些博客记录监督自己的学习(也算是做笔记)，所以第一个博客就简单记录下Markdown的基本用法吧。<h4 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h4>在Markdown中，标题分为六级，需要在标题前加上#，#的个数对应着标题的级数，字体随着级数的增加减小，具体样式如下:  <pre class="line-numbers language-none"><code class="language-none"># 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
-###### 六级标题<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-需要注意的是，每个标题与前面的#应该保留一个空格<h4 id="2-列表"><a href="#2-列表" class="headerlink" title="2.列表"></a>2.列表</h4>列表格式在Markdown中有两种表示方式<br>第一种:你需要在文本前加上<code>-</code>这个符号，具体样式参照如下:<pre class="line-numbers language-none"><code class="language-none">- 文本1
-- 文本2
-- 文本3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-第二种:在文本前加上<code>1. 2. 3.</code>而形成有序列表，相信不必多说，样式如下:<pre class="line-numbers language-none"><code class="language-none">1. 文本1
-2. 文本2
-3. 文本3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-注意:<code>-</code>和<code>1.</code>与文本均应该保留一个空格字符<h4 id="3-插入图片和链接"><a href="#3-插入图片和链接" class="headerlink" title="3.插入图片和链接"></a>3.插入图片和链接</h4>这个就简单说下<br>插入链接语法:<code>[显示文本](URL)</code><br>插入图片语法:<code>![图片上传失败...](IMG-URL)</code><h4 id="4-代码引用"><a href="#4-代码引用" class="headerlink" title="4.代码引用"></a>4.代码引用</h4>如果需要引用的代码不到一行，可以使用`这个符号将语句包起来<br>若代码超过一行，使用```置于代码块的首行和末行，举个例子吧:就和leetcode评论区的代码块一样的(反正也没有其他人看我就自己随便写吧^_^)<h4 id="5-表格"><a href="#5-表格" class="headerlink" title="5.表格"></a>5.表格</h4></li>
-</ul>
-<ol>
-<li>使用 <code>|</code> 来分隔不同的单元格，使用 <code>-</code> 来分隔表头和其他行  </li>
-<li>为了美观，可以使用空格对齐不同行的单元格，并在左右两侧都使用 <code>|</code> 来标记单元格边界  </li>
-<li>在表头下方的分隔线标记中加入 <code>:</code> 可以标记下方单元格内容的对齐方式  </li>
-</ol>
-<ul>
-<li><code>:---</code> 代表左对齐</li>
-<li><code>:---:</code> 代表居中对齐</li>
-<li><code>---:</code> 代表右对齐<h3 id="以上就是我对MarkDown最基本、最常用语法的一些简单总结，还有一些其余操作我觉得我可能用不上，需要了解的同学可以看一下我下面附上的链接。"><a href="#以上就是我对MarkDown最基本、最常用语法的一些简单总结，还有一些其余操作我觉得我可能用不上，需要了解的同学可以看一下我下面附上的链接。" class="headerlink" title="以上就是我对MarkDown最基本、最常用语法的一些简单总结，还有一些其余操作我觉得我可能用不上，需要了解的同学可以看一下我下面附上的链接。"></a>以上就是我对MarkDown最基本、最常用语法的一些简单总结，还有一些其余操作我觉得我可能用不上，需要了解的同学可以看一下我下面附上的链接。</h3><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7771794c88a1">Markdown介绍及使用教程</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/SIMBA1949/article/details/79001226?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161153590616780265471460%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&amp;request_id=161153590616780265471460&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-11-79001226.first_rank_v2_pc_rank_v29&amp;utm_term=Typora&amp;spm=1018.2226.3001.4187">TYPORA的使用手册</a>  <h3 id="好了，就这样了，估计没人看，但我会常来复习的，拜拜┏-＾0＾-┛"><a href="#好了，就这样了，估计没人看，但我会常来复习的，拜拜┏-＾0＾-┛" class="headerlink" title="好了，就这样了，估计没人看，但我会常来复习的，拜拜┏(＾0＾)┛"></a>好了，就这样了，估计没人看，但我会常来复习的，拜拜┏(＾0＾)┛</h3><img src="https://i0.hdslb.com/bfs/article/2f550783220894b522b56a42adc30bd81309a950.jpg@458w_410h.webp" alt="图片上传失败..."> </li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/2021/01/25/ji-lu-di-yi-ci-shi-yong-markdown/" data-id="ckr9g7qqi001sxgnv84kfflg0" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">next &amp;raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">
@@ -1236,9 +1321,9 @@ public:
     <h2 class="author">waakemeup</h2>
     <h3 class="description">我是waakemeup,你也可以叫我Ruby,它是一门编程语言,意为红宝石,我很喜欢所以当小名了,请多多关照!</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>12</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>13</strong><br>文章</div></a>
       <a href="/categories"><div><strong>7</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>11</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>12</strong><br>标签</div></a>
     </div>
 
 

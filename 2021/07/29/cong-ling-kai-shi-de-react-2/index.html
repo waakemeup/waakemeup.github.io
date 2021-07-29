@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>about | waakeme_upの树洞</title>
+  <title>从零开始的React(2) | waakeme_upの树洞</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我是waakemeup,你也可以叫我Ruby,它是一门编程语言,意为红宝石,我很喜欢所以当小名了,请多多关照!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://waakemeup.github.io/about/index.html">
+  <meta name="description" content="本文主要介绍ReduxRedux是什么?“Redux 是 JavaScript 状态容器，提供可预测化的状态管理”。 简单说一下大概是怎样的 基本原则     唯一数据源 保持状态只读 数据改变只能通过纯函数完成   大概流程整个应用只能有一个store,所有组件的数据源就是这个store上的状态,所谓状态只读,就是说不能去直接修改,要改变store的状态,必须要通过派发一个action对象来完成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零开始的React(2)">
+<meta property="og:url" content="http://waakemeup.github.io/2021/07/29/cong-ling-kai-shi-de-react-2/index.html">
 <meta property="og:site_name" content="waakeme_upの树洞">
-<meta property="og:description" content="我是waakemeup,你也可以叫我Ruby,它是一门编程语言,意为红宝石,我很喜欢所以当小名了,请多多关照!">
+<meta property="og:description" content="本文主要介绍ReduxRedux是什么?“Redux 是 JavaScript 状态容器，提供可预测化的状态管理”。 简单说一下大概是怎样的 基本原则     唯一数据源 保持状态只读 数据改变只能通过纯函数完成   大概流程整个应用只能有一个store,所有组件的数据源就是这个store上的状态,所谓状态只读,就是说不能去直接修改,要改变store的状态,必须要通过派发一个action对象来完成">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-24T08:56:05.000Z">
-<meta property="article:modified_time" content="2021-01-24T09:02:37.399Z">
+<meta property="article:published_time" content="2021-07-29T08:32:51.000Z">
+<meta property="article:modified_time" content="2021-07-29T10:30:03.393Z">
 <meta property="article:author" content="waakemeup">
-<meta property="article:tag" content="waakemeup">
-<meta property="article:tag" content="Ruby">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="Redux">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@https:&#x2F;&#x2F;twitter.com&#x2F;Nasiga22">
   
@@ -76,12 +76,12 @@
   </div>
 </div>
 
-        <section id="main"><article id="about-" class="wow slideInRight article article-type-about" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-从零开始的React-2" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/about/index.html" class="article-date">
-  <time class="post-time" datetime="2021-01-24T08:56:05.000Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br/>
-    <span class="post-day">24</span>
+    <a href="/2021/07/29/cong-ling-kai-shi-de-react-2/" class="article-date">
+  <time class="post-time" datetime="2021-07-29T08:32:51.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br/>
+    <span class="post-day">29</span>
   </time>
 </a>
    
@@ -93,29 +93,163 @@
         
   
     <h1 class="article-title" itemprop="name">
-      about
+      从零开始的React(2)
     </h1>
   
 
         <div>
           
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/FrontEnd/">FrontEnd</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2021/07/29/cong-ling-kai-shi-de-react-2/" class="leancloud_visitors" data-flag-title="从零开始的React(2)">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
           
         </div>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="本文主要介绍Redux"><a href="#本文主要介绍Redux" class="headerlink" title="本文主要介绍Redux"></a>本文主要介绍Redux</h2><h3 id="Redux是什么"><a href="#Redux是什么" class="headerlink" title="Redux是什么?"></a>Redux是什么?</h3><p>“Redux 是 JavaScript 状态容器，提供可预测化的状态管理”。</p>
+<h3 id="简单说一下大概是怎样的"><a href="#简单说一下大概是怎样的" class="headerlink" title="简单说一下大概是怎样的"></a>简单说一下大概是怎样的</h3><ol>
+<li>基本原则  </li>
+</ol>
+<ul>
+<li>唯一数据源</li>
+<li>保持状态只读</li>
+<li>数据改变只能通过纯函数完成</li>
+</ul>
+<ol start="2">
+<li>大概流程<br>整个应用只能有一个store,所有组件的数据源就是这个store上的状态,所谓状态只读,就是说不能去直接修改,要改变store的状态,必须要通过派发一个action对象来完成,纯函数说的是Reducer,action实际上调用了reducer方法,action能告诉reducer下一步的动作(Type)是什么<h3 id="通过一个计数器案例来简单入门Redux"><a href="#通过一个计数器案例来简单入门Redux" class="headerlink" title="通过一个计数器案例来简单入门Redux"></a>通过一个计数器案例来简单入门Redux</h3>首先在store目录下创建一个store:<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import { createStore } from 'redux'
+
+import reducer from './reducers'
+export default createStore(reducer)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+新建store要传入一个reducer,在store目录下新建一个reducer<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import T from '../action/types'
+import { combineReducers } from 'redux'
+
+const initState = {
+    num: 1
+}
+
+const change = (state = initState, action) =&gt; {
+    const { type, num } = action
+    console.log(num)
+    switch (type) {
+        case T.ADD:
+            return {
+                num: state.num + num
+            }
+        case T.REDUCE:
+            return {
+                num: state.num - num
+            }
+        default:
+            return state
+    }
+}
+
+export default combineReducers({
+    change
+})<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+state记录数据的状态,action则用于改变它<br>接下来创建action目录,创建一个actions文件,用于调用reducer<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import T from './types'
+
+export function add(num) {
+    return {
+        type: T.ADD,
+        num
+    }
+}
+
+export function reduce(num) {
+    return {
+        type: T.REDUCE,
+        num
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+还需要一个types文件,通过Object.freeze使得它只读<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">export const types = Object.freeze({
+    ADD: 'ADD',
+    REDUCE: 'REDUCE'
+})
+
+export default types<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+将根目录的app.js改为<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { add, reduce } from './action/actions';
+// import styles from './style.module.css';
+class Demo extends Component {
+  render() {
+    // console.log(this.props);
+
+    return (
+      &lt;div&gt;
+        &lt;button onClick={() =&gt; this.props.add(2)}&gt;+&lt;/button&gt;
+        &lt;span style={{ color: '#000' }}&gt;{this.props.num}&lt;/span&gt;
+        &lt;button onClick={() =&gt; this.props.reduce(3)}&gt;-&lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+const mapStateToProps = state =&gt; {
+  return {
+    num: state.change.num
+  };
+};
+const mapDispatchToProps = dispatch =&gt; {
+  return {
+    add: num =&gt; dispatch(add(num)),
+    reduce: num =&gt; dispatch(reduce(num))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Demo);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+最后在根目录的index.js文件中引入store和react-redux这个库提供的Provider组件,在Provider中提供store,使得它包含的所有子组件都能访问store<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import React from 'react';
+import ReactDOM from 'react-dom';
+// import './index.css';
+import App from './App';
+import {Provider} from 'react-redux'
+import store from './store'
+
+ReactDOM.render(
+  &lt;Provider store={store}&gt;
+    &lt;App /&gt;
+  &lt;/Provider&gt;
+  ,
+  document.getElementById('root')
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="然后这个demo就完成啦"><a href="#然后这个demo就完成啦" class="headerlink" title="然后这个demo就完成啦!"></a>然后这个demo就完成啦!</h3>借鉴了我崇拜的人写的博客,自己也在油管上看了些入门教程(感觉英语都听得懂我好像有点飘?)还有《深入浅出React和Redux》这本书,理解能力有点差,包括Vuex我也一直没认真想过,只是简单看了下,得改变一下自己思维上经常偷懒这个坏习惯,要多想,想明白才行。</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://waakemeup.github.io/about/index.html" data-id="ckros10cq0006ponvatkbapl1" class="article-share-link">分享</a>
+      <a data-url="http://waakemeup.github.io/2021/07/29/cong-ling-kai-shi-de-react-2/" data-id="ckros10cw000bponvd3p14qra" class="article-share-link">分享</a>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li></ul>
+
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2021/07/18/cong-ling-kai-shi-de-react-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">从零开始的React(1)</div>
+    </a>
+  
+</nav>
+
   
 </article>
 
